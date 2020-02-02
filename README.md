@@ -1,0 +1,55 @@
+
+                         RERD tool
+
+ 
+What is it?
+-----------
+
+RERD tool supports a model-based system design using BIP models. 
+
+
+Latest Version
+------------------
+
+Currently, only one version is available and can be downloaded at https://github.com/emmastac/BPEL2BIPtranslator.git
+
+Dependencies
+--------------
+All dependencies are under cssp-tool_lib/
+
+
+Contents
+-----------
+
+  - A /src folder with the RERD's classes
+  - A /architectureDefinitions folder with BIP models for arcitectures
+  - A /componentModels folder with BIP models for system components
+  - A /ontologies folder with files for the ontologies 
+  - A SyntaxtText.txt file that defines the Boilerplate grammar
+  - A Properties.txt file that defines the Property pattern grammar
+  
+
+  Installation
+  ------------
+
+  No installation is needed for RERDtool. A Java version (1.7+) is required. 
+
+  Execution
+  ------------
+
+  RERD tool has only a grapical user interface.
+  
+ Run with the following command:
+	   $ java -jar cssp-tool.jar
+     
+  Licensing
+  ---------
+
+  This information is in a separate file named LICENSE.
+
+  Contact
+  --------
+
+   If you want to provide us with bug reports, or if you need support with RERD tool's execution, feel free to contact me (Emmanouela Stachtiari, Ph.D) at emmastac@csd.auth.gr.
+
+
