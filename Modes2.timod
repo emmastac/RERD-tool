@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ujf.verimag.bip.Core.Modules:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ujf.verimag.bip.Core.Behaviors="http:///ujf/verimag/bip/Core/Behaviors.ecore" xmlns:ujf.verimag.bip.Core.Interactions="http:///ujf/verimag/bip/Core/Interactions.ecore" xmlns:ujf.verimag.bip.Core.Modules="http:///ujf/verimag/bip/Core/Modules.ecore" xmlns:ujf.verimag.bip.Core.PortExpressions="http:///ujf/verimag/bip/Core/PortExpressions.ecore" name="ModeControl2" srcFileName="Modes2.bip">
+  <bipType xsi:type="ujf.verimag.bip.Core.Behaviors:PortType" name="Port"/>
+  <bipType xsi:type="ujf.verimag.bip.Core.Behaviors:PortType" name="ModeSwitch"/>
+  <bipType xsi:type="ujf.verimag.bip.Core.Behaviors:PortType" name="ModeAction"/>
+  <bipType xsi:type="ujf.verimag.bip.Core.Behaviors:PortType" name="ModeStart"/>
+  <bipType xsi:type="ujf.verimag.bip.Core.Behaviors:PortType" name="ModeEnd"/>
+  <bipType xsi:type="ujf.verimag.bip.Core.Behaviors:AtomType" name="Operand">
+    <port name="m1b" type="//@bipType.3">
+      <binding xsi:type="ujf.verimag.bip.Core.Behaviors:DefinitionBinding" definition="//@bipType.5/@portDefinition.0"/>
+    </port>
+    <port name="m1e" type="//@bipType.4">
+      <binding xsi:type="ujf.verimag.bip.Core.Behaviors:DefinitionBinding" definition="//@bipType.5/@portDefinition.1"/>
+    </port>
+    <port name="m2b" type="//@bipType.3">
+      <binding xsi:type="ujf.verimag.bip.Core.Behaviors:DefinitionBinding" definition="//@bipType.5/@portDefinition.2"/>
+    </port>
+    <port name="m2e" type="//@bipType.4">
+      <binding xsi:type="ujf.verimag.bip.Core.Behaviors:DefinitionBinding" definition="//@bipType.5/@portDefinition.3"/>
+    </port>
+    <behavior xsi:type="ujf.verimag.bip.Core.Behaviors:PetriNet" initialState="//@bipType.5/@behavior/@state.0">
+      <state name="wait" incoming="//@bipType.5/@behavior/@transition.1 //@bipType.5/@behavior/@transition.3" outgoing="//@bipType.5/@behavior/@transition.0 //@bipType.5/@behavior/@transition.2"/>
+      <state name="mode1" incoming="//@bipType.5/@behavior/@transition.0" outgoing="//@bipType.5/@behavior/@transition.1"/>
+      <state name="mode2" incoming="//@bipType.5/@behavior/@transition.2" outgoing="//@bipType.5/@behavior/@transition.3"/>
+      <transition origin="//@bipType.5/@behavior/@state.0" destination="//@bipType.5/@behavior/@state.1">
+        <trigger xsi:type="ujf.verimag.bip.Core.Behaviors:PortDefinitionReference" target="//@bipType.5/@portDefinition.0"/>
+      </transition>
+      <transition origin="//@bipType.5/@behavior/@state.1" destination="//@bipType.5/@behavior/@state.0">
+        <trigger xsi:type="ujf.verimag.bip.Core.Behaviors:PortDefinitionReference" target="//@bipType.5/@portDefinition.1"/>
+      </transition>
+      <transition origin="//@bipType.5/@behavior/@state.0" destination="//@bipType.5/@behavior/@state.2">
+        <trigger xsi:type="ujf.verimag.bip.Core.Behaviors:PortDefinitionReference" target="//@bipType.5/@portDefinition.2"/>
+      </transition>
+      <transition origin="//@bipType.5/@behavior/@state.2" destination="//@bipType.5/@behavior/@state.0">
+        <trigger xsi:type="ujf.verimag.bip.Core.Behaviors:PortDefinitionReference" target="//@bipType.5/@portDefinition.3"/>
+      </transition>
+    </behavior>
+    <portDefinition name="m1b" type="//@bipType.3"/>
+    <portDefinition name="m1e" type="//@bipType.4"/>
+    <portDefinition name="m2b" type="//@bipType.3"/>
+    <portDefinition name="m2e" type="//@bipType.4"/>
+  </bipType>
+  <bipType xsi:type="ujf.verimag.bip.Core.Behaviors:AtomType" name="Coordinator">
+    <port name="inMode1" type="//@bipType.2">
+      <binding xsi:type="ujf.verimag.bip.Core.Behaviors:DefinitionBinding" definition="//@bipType.6/@portDefinition.0"/>
+    </port>
+    <port name="inMode2" type="//@bipType.2">
+      <binding xsi:type="ujf.verimag.bip.Core.Behaviors:DefinitionBinding" definition="//@bipType.6/@portDefinition.1"/>
+    </port>
+    <port name="toMode1" type="//@bipType.1">
+      <binding xsi:type="ujf.verimag.bip.Core.Behaviors:DefinitionBinding" definition="//@bipType.6/@portDefinition.2"/>
+    </port>
+    <port name="toMode2" type="//@bipType.1">
+      <binding xsi:type="ujf.verimag.bip.Core.Behaviors:DefinitionBinding" definition="//@bipType.6/@portDefinition.3"/>
+    </port>
+    <behavior xsi:type="ujf.verimag.bip.Core.Behaviors:PetriNet" initialState="//@bipType.6/@behavior/@state.0">
+      <state name="mode1" incoming="//@bipType.6/@behavior/@transition.0 //@bipType.6/@behavior/@transition.2" outgoing="//@bipType.6/@behavior/@transition.0 //@bipType.6/@behavior/@transition.3"/>
+      <state name="mode2" incoming="//@bipType.6/@behavior/@transition.1 //@bipType.6/@behavior/@transition.3" outgoing="//@bipType.6/@behavior/@transition.1 //@bipType.6/@behavior/@transition.2"/>
+      <transition origin="//@bipType.6/@behavior/@state.0" destination="//@bipType.6/@behavior/@state.0">
+        <trigger xsi:type="ujf.verimag.bip.Core.Behaviors:PortDefinitionReference" target="//@bipType.6/@portDefinition.0"/>
+      </transition>
+      <transition origin="//@bipType.6/@behavior/@state.1" destination="//@bipType.6/@behavior/@state.1">
+        <trigger xsi:type="ujf.verimag.bip.Core.Behaviors:PortDefinitionReference" target="//@bipType.6/@portDefinition.1"/>
+      </transition>
+      <transition origin="//@bipType.6/@behavior/@state.1" destination="//@bipType.6/@behavior/@state.0">
+        <trigger xsi:type="ujf.verimag.bip.Core.Behaviors:PortDefinitionReference" target="//@bipType.6/@portDefinition.2"/>
+      </transition>
+      <transition origin="//@bipType.6/@behavior/@state.0" destination="//@bipType.6/@behavior/@state.1">
+        <trigger xsi:type="ujf.verimag.bip.Core.Behaviors:PortDefinitionReference" target="//@bipType.6/@portDefinition.3"/>
+      </transition>
+    </behavior>
+    <portDefinition name="inMode1" type="//@bipType.2"/>
+    <portDefinition name="inMode2" type="//@bipType.2"/>
+    <portDefinition name="toMode1" type="//@bipType.1"/>
+    <portDefinition name="toMode2" type="//@bipType.1"/>
+  </bipType>
+  <bipType xsi:type="ujf.verimag.bip.Core.Interactions:ConnectorType" name="ModeSwitchConnector">
+    <portParameter name="sw" type="//@bipType.1"/>
+    <definition xsi:type="ujf.verimag.bip.Core.Interactions:PortParameterReference" target="//@bipType.7/@portParameter.0"/>
+  </bipType>
+  <bipType xsi:type="ujf.verimag.bip.Core.Interactions:ConnectorType" name="ActionStartConnector">
+    <portParameter name="ctrl" type="//@bipType.2"/>
+    <portParameter name="action" type="//@bipType.3"/>
+    <definition xsi:type="ujf.verimag.bip.Core.PortExpressions:ACFusion">
+      <operand xsi:type="ujf.verimag.bip.Core.Interactions:PortParameterReference" target="//@bipType.8/@portParameter.0"/>
+      <operand xsi:type="ujf.verimag.bip.Core.Interactions:PortParameterReference" target="//@bipType.8/@portParameter.1"/>
+    </definition>
+  </bipType>
+  <bipType xsi:type="ujf.verimag.bip.Core.Interactions:ConnectorType" name="ActionEndConnector">
+    <portParameter name="action" type="//@bipType.4"/>
+    <definition xsi:type="ujf.verimag.bip.Core.Interactions:PortParameterReference" target="//@bipType.9/@portParameter.0"/>
+  </bipType>
+  <bipType xsi:type="ujf.verimag.bip.Core.Interactions:CompoundType" name="ModeControl2">
+    <connector name="switchToMode1" type="//@bipType.7">
+      <actualPort xsi:type="ujf.verimag.bip.Core.Interactions:InnerPortReference" targetPort="//@bipType.6/@port.2">
+        <targetInstance targetPart="//@bipType.10/@subcomponent.0"/>
+      </actualPort>
+    </connector>
+    <connector name="switchToMode2" type="//@bipType.7">
+      <actualPort xsi:type="ujf.verimag.bip.Core.Interactions:InnerPortReference" targetPort="//@bipType.6/@port.3">
+        <targetInstance targetPart="//@bipType.10/@subcomponent.0"/>
+      </actualPort>
+    </connector>
+    <connector name="actionStart1" type="//@bipType.8">
+      <actualPort xsi:type="ujf.verimag.bip.Core.Interactions:InnerPortReference" targetPort="//@bipType.6/@port.0">
+        <targetInstance targetPart="//@bipType.10/@subcomponent.0"/>
+      </actualPort>
+      <actualPort xsi:type="ujf.verimag.bip.Core.Interactions:InnerPortReference" targetPort="//@bipType.5/@port.0">
+        <targetInstance targetPart="//@bipType.10/@subcomponent.1"/>
+      </actualPort>
+    </connector>
+    <connector name="actionStart2" type="//@bipType.8">
+      <actualPort xsi:type="ujf.verimag.bip.Core.Interactions:InnerPortReference" targetPort="//@bipType.6/@port.1">
+        <targetInstance targetPart="//@bipType.10/@subcomponent.0"/>
+      </actualPort>
+      <actualPort xsi:type="ujf.verimag.bip.Core.Interactions:InnerPortReference" targetPort="//@bipType.5/@port.2">
+        <targetInstance targetPart="//@bipType.10/@subcomponent.1"/>
+      </actualPort>
+    </connector>
+    <connector name="actionEnd1" type="//@bipType.9">
+      <actualPort xsi:type="ujf.verimag.bip.Core.Interactions:InnerPortReference" targetPort="//@bipType.5/@port.1">
+        <targetInstance targetPart="//@bipType.10/@subcomponent.1"/>
+      </actualPort>
+    </connector>
+    <connector name="actionEnd2" type="//@bipType.9">
+      <actualPort xsi:type="ujf.verimag.bip.Core.Interactions:InnerPortReference" targetPort="//@bipType.5/@port.3">
+        <targetInstance targetPart="//@bipType.10/@subcomponent.1"/>
+      </actualPort>
+    </connector>
+    <subcomponent name="C" type="//@bipType.6"/>
+    <subcomponent name="B" type="//@bipType.5"/>
+  </bipType>
+  <root name="modeControl2" type="//@bipType.10"/>
+</ujf.verimag.bip.Core.Modules:System>

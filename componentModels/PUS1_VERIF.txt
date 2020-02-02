@@ -1,0 +1,20 @@
+atomic type PUSsvc1Verif
+
+ 
+data int  sid ,ssid ,ackReq ,src  
+   
+	export port  syncPort  PUSaccept     
+	export port  syncPort  PUSreject     
+	export port  syncPort  PUSver   
+ 
+	place S0 ,S1 
+
+initial to  S0 do{  
+	sid=-1; ssid=-1; ackReq=-1; src=-1;  }
+
+ on PUSver from S0 to S1   
+ on PUSreject from S1 to S0   
+ on PUSaccept from S1 to S0   
+
+
+end

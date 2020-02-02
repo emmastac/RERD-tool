@@ -1,0 +1,100 @@
+# This is the file for defining the syntax of the blpEditor application
+
+# Lines starting with # are considered comments and not parsed
+# Each line is written like (without the # at start of line):
+# ID # content, content1|content2, namespace:content::
+
+# content is a static string. The user will be unable to Change it
+
+# content1 | content2 is parsed as a drop-down. The user will choose 
+# one of the options that are separated by the "|" (pipe) character
+
+# Namespace:content:: exampleContent is parsed as a text field. The type is content. 
+# It can be prefilled with exampleContent (if it exists), or be empty.
+# The user will be able to edit the value of exampleContent
+
+# DO NOT USE DASHES IN PROPERTY IDS! DON'T DO RBLP-P1a, USE ':' INSTEAD, LIKE IN RBLP:P1a
+
+# Syntax should always be first so that parsing for the complex items can work
+# Any complex item (e.g <Time-Interval>) referenced in the content a line of syntax should first be defined
+# Always put the simplest form of a definition first, since it will be the default
+
+SYNTAX:
+# Definitions with no dependencies
+Comparator := < | > | <= | >= | == | !=
+Variable-temp1 := PRP:Component::
+Variable-temp1 := G
+Variable-temp1 := L
+Variable := <Variable-temp1> , PRP:hasVariableName::
+Port := PRP:Component:: , OoSSA:Port::
+Mode-Change := mode changes for , PRP:Component:: , from , PRP:Mode:: , to , PRP:Mode::
+Mode-list := PRP:Mode:: 
+Mode-list := PRP:Mode:: , <Mode-list>
+
+# >=1 dependency from previous or this group
+Interaction := <Port> 
+Interaction := interaction (, <Port> , <Interaction> , )
+Port-list := <Port> 
+Port-list := <Port> , <Port-list>
+Interaction-list := <Interaction>
+Interaction-list := <Interaction>, <Interaction-list>
+Function := PRP:hasFunctionName:: , <Variable> , PRP:hasFunctionBody::
+Evaluation := PRP:Expression::
+Evaluation := <Variable>
+Evaluation := PRP:LiteralValue::
+Evaluation := <Function>
+Local-definition := PRP:hasVariableName , := , <Evaluation>
+Closed-interval-left := [ 
+Closed-interval-right := ] 
+Open-interval-left := ( 
+Open-interval-right := )
+Interval-left :=  <Closed-interval-left>
+Interval-left := <Open-interval-left>
+Interval-right :=  <Closed-interval-right>
+Interval-right :=  <Open-interval-right>
+Interval :=  [, <Evaluation> , <Evaluation> ,]
+Time-Interval := <Interval> , ns | ms | s
+Quant-Interval := <Interval> , uomvocab:UnitOfMeasurement::
+
+# >2 dependencies from previous groups OR >=1 dependencies from this group
+Logic-Expression := <Evaluation> , in , <Interval>
+Logic-Expression := <Evaluation> , <Comparator> , <Evaluation>
+Prop-Change := <Logic-Expression> , becomes true
+Proposition := PRP:Component:: , is in , PRP:Mode::
+Proposition := <Logic-Expression> , holds
+Event-Temp1 := <Port>
+Event-Temp1 := PRP:Proposition::
+Event-Temp1 := <Interaction>
+Event-Temp1 := <Mode-Change>
+Event-Temp1 := <Prop-Change>
+Simple-Beh-Times := once
+Simple-Beh-Times := <Interval> , times
+Simple-Beh-Dur :=
+Simple-Beh-Dur := eventually
+Simple-Beh-Dur := during , <Time-Interval>
+Simple-Beh := <Event-Temp1> , occurs | does not occur, <Simple-Beh-Times> , <Simple-Beh-Dur>
+Beh-Operator := AND | OR | SEQ
+Beh := <Simple-Beh>
+Beh := <Beh> , <Beh-Operator> , <Beh>
+Beh := <Beh> , let , <Local-definition>
+
+BEHAVIOURS:
+PRP:F1 := Whenever, <Beh>, then , <Beh>
+PRP:F2 := Always, <Beh>
+
+ARCHITECTURES:
+PRP:CS1 := PRP:Component::, offers the following services , <Port-list> 
+PRP:CS2 := <Port>, is used only by  , <Port-list>
+PRP:MD1 := PRP:Component::, has exclusive modes, PRP:Mode::, <Mode-list>
+PRP:MD2 := PRP:Component::, has default mode , PRP:Mode::
+PRP:MD3 := Actions between , <Port> , and , <Port> , are only allowed in modes : , <Mode-list>
+PRP:MD4 := Whenever , <Port> , occurs mode is set to , PRP:Mode::
+PRP:AF1 := The following beginnings of actions are performed sequentially , <Port-list>
+PRP:AF2 := Action, <Port>, ends with , <Port>
+PRP:MX1 := There is a set of mutually excluded action sequences among components, PRP:Component:: , PRP:Component::
+PRP:MX2 := Actions between , <Port> , and , <Port> , take part in the mutual exclusion
+PRP:BM1 := <Port-list>, store data consumed only by, <Port-list>
+PRP:PRM1 := The following actions are prioritized (high to low) , <Interaction-list> 
+PRP:PRM2 := If, <Port>, is not enabled then ,<Port>, occurs.
+PRP:AFA2 := Action, <Interaction>, either ends with , <Interaction>, or aborts with  ,<Interaction-list>
+PRP:FM1 := After a failure with, <Interaction>, the system is either resumed with , <Interaction>, or reset with, <Interaction> 

@@ -1,0 +1,3 @@
+path:/localhome/vladimir/Architecture_examples/Archive/ActionSequence/ActionSequence-operands12.bip
+operands:{B B1 B2}
+ports:{B.actBeginOperand B1.a1b B1.a2b B2.a3b},{B.actEndOperand B1.a1e B1.a2e B2.a3e}

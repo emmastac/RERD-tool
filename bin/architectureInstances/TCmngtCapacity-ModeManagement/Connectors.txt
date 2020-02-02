@@ -1,0 +1,6 @@
+	connector ModeSwitchConnector switchToMode1(C.toFull)
+	connector ModeSwitchConnector switchToMode2(C.toNfull)
+	connector ActionStartConnector acqSg_b ( TCmanagement.acqSg_b ,C.acqSg   ) 
+	connector ActionStartConnector acqFail_b ( TCmanagement.acqFail_b ,C.acqFail   ) 
+	connector ActionEndConnector acqSg_e ( TCmanagement.acqSg_e   ) 
+	connector ActionEndConnector acqFail_e ( TCmanagement.acqFail_e   ) 

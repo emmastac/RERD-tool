@@ -1,0 +1,21 @@
+atomic type svc228
+
+
+data int  SID ,SSID ,accReq  
+   
+	export port  syncPort  exec228_2     
+	export port  syncPort  exec228_3     
+	export port  syncPort  exec228_1     
+	export port  syncPort  exec228_4   
+ 
+	place S0 
+
+initial to  S0 do{  }
+
+ on exec228_1 from S0 to S0   
+ on exec228_2 from S0 to S0   
+ on exec228_3 from S0 to S0   
+ on exec228_4 from S0 to S0   
+
+
+end

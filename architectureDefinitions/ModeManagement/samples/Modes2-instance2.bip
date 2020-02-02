@@ -1,0 +1,97 @@
+model ModeControl2
+
+	port type ModeSwitch
+	port type ModeAction
+	
+	port type ModeStart
+	port type ModeEnd
+
+	atomic type Housekeeping		
+		export port ModeStart saveToMem
+		export port ModeEnd success
+		export port ModeEnd fail
+
+		export port ModeStart sendToGround
+	
+
+		place idle, memory, comm
+		initial to idle
+
+		on saveToMem from idle to memory
+		on success from memory to idle
+		on fail from memory to idle
+
+		on sendToGround from idle to comm
+		on success from comm to idle
+		on fail from comm to idle
+	end
+
+	atomic type LogType
+	        export port ModeStart log
+
+		place idle
+		initial to idle
+
+		on log from idle to idle
+	end
+
+	connector type ModeSwitchConnector (ModeSwitch sw)
+	        define sw
+	end
+
+	connector type ActionStartConnector (ModeAction ctrl, ModeStart action)
+		define ctrl action
+	end
+
+	connector type ActionEndConnector (ModeEnd action)
+	        define action
+        end
+
+	atomic type Coordinator
+		
+		export port ModeAction inMode1
+		export port ModeAction inMode2
+
+		export port ModeSwitch toMode1
+		export port ModeSwitch toMode2
+
+		place mode1, mode2
+		initial to mode1
+
+		on inMode1 from mode1 to mode1
+		on inMode2 from mode2 to mode2
+
+		on toMode1 from mode2 to mode1
+		on toMode2 from mode1 to mode2
+	end
+
+
+	connector type ModeSwitchConnector (ModeSwitch sw)
+	        define sw
+	end
+
+	connector type ActionStartConnector (ModeAction ctrl, ModeStart action1, ModeStart action2)
+		define ctrl action1 action2
+	end
+
+	connector type ActionEndConnector (ModeEnd action1, ModeEnd action2)
+	        define action1 action2
+        end
+
+	compound type ModeControl
+		component Coordinator C
+		component Housekeeping HK
+		component LogType Log
+
+		connector ModeSwitchConnector switchToMode1(C.toMode1)
+		connector ModeSwitchConnector switchToMode2(C.toMode2)
+
+		connector ActionStartConnector actionStart1(C.inMode1, HK.saveToMem, Log.log)
+		connector ActionStartConnector actionStart2(C.inMode2, HK.sendToGround, Log.log)
+
+		connector ActionEndConnector actionEnd1(HK.success, Log.log)
+		connector ActionEndConnector actionEnd2(HK.fail, Log.log)
+	end
+
+	component ModeControl2 modeControl2
+end

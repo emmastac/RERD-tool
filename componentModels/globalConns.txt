@@ -1,0 +1,8 @@
+	connector RDV2 execOK_228_1 ( PUS1_DISP.execOK ,SVC228.exec228_1   )  
+	connector RDV2 execOK_228_2 ( PUS1_DISP.execOK ,SVC228.exec228_2   )  
+	connector RDV2 execOK_228_3 ( PUS1_DISP.execOK ,SVC228.exec228_3   )  
+	connector RDV2 execOK_228_4 ( PUS1_DISP.execOK ,SVC228.exec228_4   )   
+	
+	connector RDV2 emptySg ( SMUTC.empty ,TCMNG.noSg )  
+	connector RDV3 acqSg_b ( TCMNG.acqSg_b ,SMUTC.get_b   )  
+	connector RDV3 acqSg_e ( SMUTC.get_e ,TCMNG.acqSg_e   )    

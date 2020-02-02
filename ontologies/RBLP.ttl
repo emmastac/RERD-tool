@@ -1,0 +1,1584 @@
+# baseURI: http://lpis.csd.auth.gr/ontologies/2015/RBLP
+# imports: http://purl.oclc.org/net/muo/muo
+# imports: http://spinrdf.org/spin
+
+@prefix RBLP: <http://lpis.csd.auth.gr/ontologies/2015/RBLP#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://lpis.csd.auth.gr/ontologies/2015/RBLP>
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/rdfsplus> ;
+  owl:imports <http://purl.oclc.org/net/muo/muo> ;
+  owl:imports <http://spinrdf.org/spin> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+RBLP:Action
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:ActionBlock ;
+.
+RBLP:ActionBlock
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Attribute ;
+.
+RBLP:Actor
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:SimpleEntity ;
+.
+RBLP:Attribute
+  rdf:type owl:Class ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "e2"^^xsd:string ;
+              ] ;
+            sp:predicate RBLP:contradictsWith ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "val1"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "pr"^^xsd:string ;
+              ] ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    rdf:type sp:strbefore ;
+                    sp:arg1 [
+                        rdf:type sp:str ;
+                        sp:arg1 [
+                            sp:varName "pr"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 "#" ;
+                  ] ;
+                sp:arg2 "http://lpis.csd.auth.gr/ontologies/2015/RBLP" ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 [
+                    sp:varName "pr"^^xsd:string ;
+                  ] ;
+                sp:arg2 RBLP:isRelatedToAttribute ;
+              ] ;
+          ]
+          [
+            sp:object RBLP:Attribute ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "e2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 spin:_this ;
+                sp:arg2 [
+                    sp:varName "e2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "val2"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "pr"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "e2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "val2"^^xsd:string ;
+              ] ;
+            sp:predicate RBLP:contradictsWith ;
+            sp:subject [
+                sp:varName "val1"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:NotExists ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "val"^^xsd:string ;
+                    ] ;
+                  sp:predicate [
+                      sp:varName "prop"^^xsd:string ;
+                    ] ;
+                  sp:subject spin:_this ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:and ;
+                      sp:arg1 [
+                          rdf:type sp:ne ;
+                          sp:arg1 [
+                              sp:varName "prop"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "pr"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:arg2 [
+                          rdf:type sp:ne ;
+                          sp:arg1 [
+                              sp:varName "prop"^^xsd:string ;
+                            ] ;
+                          sp:arg2 RBLP:isRelatedToAttribute ;
+                        ] ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:eq ;
+                      sp:arg1 [
+                          rdf:type sp:strbefore ;
+                          sp:arg1 [
+                              rdf:type sp:str ;
+                              sp:arg1 [
+                                  sp:varName "prop"^^xsd:string ;
+                                ] ;
+                            ] ;
+                          sp:arg2 "#" ;
+                        ] ;
+                      sp:arg2 "http://lpis.csd.auth.gr/ontologies/2015/RBLP" ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:NotExists ;
+                  sp:elements (
+                      [
+                        rdf:type sp:Union ;
+                        sp:elements (
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject [
+                                    sp:varName "e2"^^xsd:string ;
+                                  ] ;
+                              ]
+                            )
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val3"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject [
+                                    sp:varName "e2"^^xsd:string ;
+                                  ] ;
+                              ]
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate RBLP:isSimilarTo ;
+                                sp:subject [
+                                    sp:varName "val3"^^xsd:string ;
+                                  ] ;
+                              ]
+                            )
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val3"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject [
+                                    sp:varName "e2"^^xsd:string ;
+                                  ] ;
+                              ]
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate RBLP:contradictsWith ;
+                                sp:subject [
+                                    sp:varName "val3"^^xsd:string ;
+                                  ] ;
+                              ]
+                            )
+                          ) ;
+                      ]
+                    ) ;
+                ]
+              ) ;
+          ]
+          [
+            rdf:type sp:NotExists ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "val"^^xsd:string ;
+                    ] ;
+                  sp:predicate [
+                      sp:varName "prop"^^xsd:string ;
+                    ] ;
+                  sp:subject [
+                      sp:varName "e2"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:and ;
+                      sp:arg1 [
+                          rdf:type sp:ne ;
+                          sp:arg1 [
+                              sp:varName "prop"^^xsd:string ;
+                            ] ;
+                          sp:arg2 [
+                              sp:varName "pr"^^xsd:string ;
+                            ] ;
+                        ] ;
+                      sp:arg2 [
+                          rdf:type sp:ne ;
+                          sp:arg1 [
+                              sp:varName "prop"^^xsd:string ;
+                            ] ;
+                          sp:arg2 RBLP:isRelatedToAttribute ;
+                        ] ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:eq ;
+                      sp:arg1 [
+                          rdf:type sp:strbefore ;
+                          sp:arg1 [
+                              rdf:type sp:str ;
+                              sp:arg1 [
+                                  sp:varName "prop"^^xsd:string ;
+                                ] ;
+                            ] ;
+                          sp:arg2 "#" ;
+                        ] ;
+                      sp:arg2 "http://lpis.csd.auth.gr/ontologies/2015/RBLP" ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:NotExists ;
+                  sp:elements (
+                      [
+                        rdf:type sp:Union ;
+                        sp:elements (
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject spin:_this ;
+                              ]
+                            )
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val3"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject spin:_this ;
+                              ]
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate RBLP:isSimilarTo ;
+                                sp:subject [
+                                    sp:varName "val3"^^xsd:string ;
+                                  ] ;
+                              ]
+                            )
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val3"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject spin:_this ;
+                              ]
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate RBLP:contradictsWith ;
+                                sp:subject [
+                                    sp:varName "val3"^^xsd:string ;
+                                  ] ;
+                              ]
+                            )
+                          ) ;
+                      ]
+                    ) ;
+                ]
+              ) ;
+          ]
+        ) ;
+    ] ;
+  spin:rule [
+      rdf:type sp:Construct ;
+      sp:templates (
+          [
+            sp:object [
+                sp:varName "e2"^^xsd:string ;
+              ] ;
+            sp:predicate RBLP:isSimilarTo ;
+            sp:subject spin:_this ;
+          ]
+        ) ;
+      sp:where (
+          [
+            sp:object [
+                sp:varName "val1"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "pr1"^^xsd:string ;
+              ] ;
+            sp:subject spin:_this ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    rdf:type sp:strbefore ;
+                    sp:arg1 [
+                        rdf:type sp:str ;
+                        sp:arg1 [
+                            sp:varName "pr1"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 "#" ;
+                  ] ;
+                sp:arg2 "http://lpis.csd.auth.gr/ontologies/2015/RBLP" ;
+              ] ;
+          ]
+          [
+            sp:object RBLP:Attribute ;
+            sp:predicate rdf:type ;
+            sp:subject [
+                sp:varName "e2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:ne ;
+                sp:arg1 spin:_this ;
+                sp:arg2 [
+                    sp:varName "e2"^^xsd:string ;
+                  ] ;
+              ] ;
+          ]
+          [
+            sp:object [
+                sp:varName "val2"^^xsd:string ;
+              ] ;
+            sp:predicate [
+                sp:varName "pr2"^^xsd:string ;
+              ] ;
+            sp:subject [
+                sp:varName "e2"^^xsd:string ;
+              ] ;
+          ]
+          [
+            rdf:type sp:Filter ;
+            sp:expression [
+                rdf:type sp:eq ;
+                sp:arg1 [
+                    rdf:type sp:strbefore ;
+                    sp:arg1 [
+                        rdf:type sp:str ;
+                        sp:arg1 [
+                            sp:varName "pr2"^^xsd:string ;
+                          ] ;
+                      ] ;
+                    sp:arg2 "#" ;
+                  ] ;
+                sp:arg2 "http://lpis.csd.auth.gr/ontologies/2015/RBLP" ;
+              ] ;
+          ]
+          [
+            rdf:type sp:NotExists ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "val"^^xsd:string ;
+                    ] ;
+                  sp:predicate [
+                      sp:varName "prop"^^xsd:string ;
+                    ] ;
+                  sp:subject spin:_this ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:eq ;
+                      sp:arg1 [
+                          rdf:type sp:strbefore ;
+                          sp:arg1 [
+                              rdf:type sp:str ;
+                              sp:arg1 [
+                                  sp:varName "prop"^^xsd:string ;
+                                ] ;
+                            ] ;
+                          sp:arg2 "#" ;
+                        ] ;
+                      sp:arg2 "http://lpis.csd.auth.gr/ontologies/2015/RBLP" ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:NotExists ;
+                  sp:elements (
+                      [
+                        rdf:type sp:Union ;
+                        sp:elements (
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject [
+                                    sp:varName "e2"^^xsd:string ;
+                                  ] ;
+                              ]
+                            )
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val2"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject [
+                                    sp:varName "e2"^^xsd:string ;
+                                  ] ;
+                              ]
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate RBLP:isSimilarTo ;
+                                sp:subject [
+                                    sp:varName "val2"^^xsd:string ;
+                                  ] ;
+                              ]
+                            )
+                          ) ;
+                      ]
+                    ) ;
+                ]
+              ) ;
+          ]
+          [
+            rdf:type sp:NotExists ;
+            sp:elements (
+                [
+                  sp:object [
+                      sp:varName "val"^^xsd:string ;
+                    ] ;
+                  sp:predicate [
+                      sp:varName "prop"^^xsd:string ;
+                    ] ;
+                  sp:subject [
+                      sp:varName "e2"^^xsd:string ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:Filter ;
+                  sp:expression [
+                      rdf:type sp:eq ;
+                      sp:arg1 [
+                          rdf:type sp:strbefore ;
+                          sp:arg1 [
+                              rdf:type sp:str ;
+                              sp:arg1 [
+                                  sp:varName "prop"^^xsd:string ;
+                                ] ;
+                            ] ;
+                          sp:arg2 "#" ;
+                        ] ;
+                      sp:arg2 "http://lpis.csd.auth.gr/ontologies/2015/RBLP" ;
+                    ] ;
+                ]
+                [
+                  rdf:type sp:NotExists ;
+                  sp:elements (
+                      [
+                        rdf:type sp:Union ;
+                        sp:elements (
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject spin:_this ;
+                              ]
+                            )
+                            (
+                              [
+                                sp:object [
+                                    sp:varName "val2"^^xsd:string ;
+                                  ] ;
+                                sp:predicate [
+                                    sp:varName "prop"^^xsd:string ;
+                                  ] ;
+                                sp:subject spin:_this ;
+                              ]
+                              [
+                                sp:object [
+                                    sp:varName "val"^^xsd:string ;
+                                  ] ;
+                                sp:predicate RBLP:isSimilarTo ;
+                                sp:subject [
+                                    sp:varName "val2"^^xsd:string ;
+                                  ] ;
+                              ]
+                            )
+                          ) ;
+                      ]
+                    ) ;
+                ]
+              ) ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf owl:Thing ;
+.
+RBLP:ComplexEntity
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Entity ;
+.
+RBLP:ComplexPrefix
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Prefix ;
+.
+RBLP:ComplexSuffix
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Suffix ;
+.
+RBLP:Condition
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Attribute ;
+.
+RBLP:ConditionalActionBlock
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:ActionBlock ;
+.
+RBLP:Entity
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Attribute ;
+.
+RBLP:EntityAttribute
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:SimpleEntity ;
+.
+RBLP:EntityFilter
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Attribute ;
+.
+RBLP:EntityFilterAction
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:EntityFilter ;
+.
+RBLP:EntityFilterState
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:EntityFilter ;
+.
+RBLP:EntityFilterSubEntityAction
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:EntityFilter ;
+.
+RBLP:EntityFilterSubEntityState
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:EntityFilter ;
+.
+RBLP:EntityList
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:ComplexEntity ;
+.
+RBLP:Event
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:EntityAttribute ;
+.
+RBLP:IfBlock
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:ConditionalActionBlock ;
+.
+RBLP:M1
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] <action>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Action ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAction ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:M10
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] make available <entity>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Entity ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+.
+RBLP:M11
+  rdf:type owl:Class ;
+  rdfs:comment "<entity> shall [not] be defined in <entity>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Entity ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:SimpleEntity ;
+      owl:onProperty RBLP:isRelatedToSubject ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToSubject ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "2"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:M12
+  rdf:type owl:Class ;
+  rdfs:comment "<entity> shall [not] allow <entity> to <action>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:SimpleEntity ;
+      owl:onProperty RBLP:isRelatedToSubject ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAction ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToSubject ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "3"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:M2
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not]  be <state>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:State ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToState ;
+    ] ;
+.
+RBLP:M3
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] allow  <entity> [ of <quantity> ]    [to be <state>]"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              RBLP:State
+              RBLP:Entity
+              RBLP:Quantity
+            ) ;
+        ] ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToQuantity ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToState ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "3"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:M4
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] allow  [ <number> ]   <entity> [to be <state> ]"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              RBLP:State
+              RBLP:Entity
+            ) ;
+        ] ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToState ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "2"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:M5
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] have [ <number> ]  <entity>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Entity ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+.
+RBLP:M6
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] be able to <action>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Action ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAction ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:M7
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] support <action>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Action ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAction ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:M8
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] execute <action-block>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:ActionBlock ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToActionBlock ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:M9
+  rdf:type owl:Class ;
+  rdfs:comment "<subject> shall [not] handle <entity>"^^xsd:string ;
+  rdfs:subClassOf RBLP:Main ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Entity ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+.
+RBLP:Main
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents the main part of a boilerplate for describing requirements."^^xsd:string ;
+  rdfs:subClassOf RBLP:ReqDescriptor ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              RBLP:Actor
+              RBLP:Entity
+            ) ;
+        ] ;
+      owl:onProperty RBLP:isRelatedToSubject ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToSubject ;
+    ] ;
+.
+RBLP:Mode
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:EntityAttribute ;
+.
+RBLP:P1
+  rdf:type owl:Class ;
+  rdfs:comment "If/unless <event>"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimplePrefix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Action ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedtoEvent ;
+    ] ;
+.
+RBLP:P2
+  rdf:type owl:Class ;
+  rdfs:comment "If/unless <state>"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimplePrefix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:State ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToState ;
+    ] ;
+.
+RBLP:P3
+  rdf:type owl:Class ;
+  rdfs:comment "In order to <action>"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimplePrefix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Action ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAction ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:Prefix
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:ReqDescriptor ;
+.
+RBLP:Quantifier
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Attribute ;
+.
+RBLP:Quantity
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Attribute ;
+.
+RBLP:ReqDescriptor
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+RBLP:S1
+  rdf:type owl:Class ;
+  rdfs:comment "[hquantifieri] number unit [per time-unit]"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              RBLP:Quantity
+              <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement>
+            ) ;
+        ] ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToQuantity ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedtoUOM ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "2"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:S10
+  rdf:type owl:Class ;
+  rdfs:label "S10"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+.
+RBLP:S2
+  rdf:type owl:Class ;
+  rdfs:comment "after/before <event>"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Event ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedtoEvent ;
+    ] ;
+.
+RBLP:S3
+  rdf:type owl:Class ;
+  rdfs:comment "[quantifier] [every/for a period of/within/for at least] number time-unit [from event]"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              RBLP:Quantity
+              <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement>
+            ) ;
+        ] ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedtoUOM ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedtoEvent ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "2"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:S4
+  rdf:type owl:Class ;
+  rdfs:comment "without [affecting] (<action> = <entity>)"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              RBLP:Action
+              RBLP:Entity
+            ) ;
+        ] ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAction ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+.
+RBLP:S5
+  rdf:type owl:Class ;
+  rdfs:comment "other than (<action> = <entity>)"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              RBLP:Action
+              RBLP:Entity
+            ) ;
+        ] ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAction ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToEntity ;
+    ] ;
+.
+RBLP:S6
+  rdf:type owl:Class ;
+  rdfs:comment "in the order (( \":\" <entity-list>) | <entity>)"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:unionOf (
+              RBLP:Entity
+              RBLP:EntityList
+            ) ;
+        ] ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:S7
+  rdf:type owl:Class ;
+  rdfs:comment "at even intervals"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+.
+RBLP:S8
+  rdf:type owl:Class ;
+  rdfs:comment "using <entity>"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom RBLP:Entity ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty RBLP:isRelatedToAttribute ;
+    ] ;
+.
+RBLP:S9
+  rdf:type owl:Class ;
+  rdfs:label "S9"^^xsd:string ;
+  rdfs:subClassOf RBLP:SimpleSuffix ;
+.
+RBLP:SimpleEntity
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Entity ;
+.
+RBLP:SimplePrefix
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Prefix ;
+.
+RBLP:SimpleSuffix
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Suffix ;
+.
+RBLP:State
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:EntityAttribute ;
+.
+RBLP:Suffix
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:Attribute ;
+  rdfs:subClassOf RBLP:ReqDescriptor ;
+.
+RBLP:WhileBlock
+  rdf:type owl:Class ;
+  rdfs:subClassOf RBLP:ConditionalActionBlock ;
+.
+RBLP:contradictsWith
+  rdf:type owl:SymmetricProperty ;
+  rdfs:domain RBLP:Attribute ;
+.
+RBLP:hasDescription
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain RBLP:SimpleEntity ;
+  rdfs:label "has description"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+RBLP:hasNegation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain RBLP:Main ;
+  rdfs:label "has negation"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+.
+RBLP:hasNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:M4
+          RBLP:M5
+          RBLP:S1
+          RBLP:S3
+          RBLP:Quantity
+        ) ;
+    ] ;
+.
+RBLP:hasOperator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:ComplexPrefix
+          RBLP:ComplexSuffix
+          RBLP:ComplexEntity
+          RBLP:Action
+        ) ;
+    ] ;
+  rdfs:label "has operator"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+RBLP:hasPreposition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:State
+          RBLP:Entity
+          RBLP:Action
+        ) ;
+    ] ;
+  rdfs:label "is related to preposition"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+RBLP:hasQuantifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain RBLP:Quantity ;
+  rdfs:label "is related to quantifier"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+RBLP:hasQuantity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:M3
+          RBLP:M4
+          RBLP:M5
+          RBLP:S1
+          RBLP:S3
+        ) ;
+    ] ;
+  rdfs:label "has quantity"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+RBLP:hasSimpleEntity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:ComplexEntity ;
+  rdfs:range RBLP:SimpleEntity ;
+.
+RBLP:hasVerb
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:Action
+          RBLP:Event
+        ) ;
+    ] ;
+  rdfs:label "is related to verb"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+RBLP:isRelatedToAction
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:M1
+          RBLP:M6
+          RBLP:M7
+          RBLP:M12
+          RBLP:S4
+          RBLP:S5
+          RBLP:P3
+          RBLP:EntityFilterAction
+          RBLP:EntityFilterSubEntityAction
+          RBLP:Event
+        ) ;
+    ] ;
+  rdfs:range RBLP:Action ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToActionBlock
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:ConditionalActionBlock
+          RBLP:M8
+        ) ;
+    ] ;
+  rdfs:range RBLP:ActionBlock ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToActor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:Event ;
+  rdfs:label "is related to actor"^^xsd:string ;
+  rdfs:range RBLP:Actor ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToAttribute
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:ReqDescriptor ;
+  rdfs:range RBLP:Attribute ;
+.
+RBLP:isRelatedToCondition
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:ConditionalActionBlock ;
+  rdfs:range RBLP:Condition ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToEntities
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:EntityList ;
+  rdfs:range rdf:List ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToEntity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:State
+          RBLP:SimpleEntity
+          RBLP:M3
+          RBLP:M4
+          RBLP:M5
+          RBLP:M9
+          RBLP:M10
+          RBLP:M11
+          RBLP:M12
+          RBLP:S4
+          RBLP:S5
+          RBLP:S6
+          RBLP:S8
+          RBLP:S9
+          RBLP:Action
+          RBLP:EntityFilterAction
+          RBLP:EntityFilterState
+          RBLP:Event
+        ) ;
+    ] ;
+  rdfs:range RBLP:Entity ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToEntityList
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:S6 ;
+  rdfs:range RBLP:Entity ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToListOfActionBlocks
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:IfBlock ;
+  rdfs:range RBLP:ActionBlock ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToListOfConditions
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:IfBlock ;
+  rdfs:range RBLP:Condition ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToNumbers
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:EntityList ;
+  rdfs:range rdf:List ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToOtherwiseClause
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:IfBlock ;
+  rdfs:range RBLP:ActionBlock ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToQuantifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:Quantity
+          RBLP:S1
+        ) ;
+    ] ;
+  rdfs:range RBLP:Quantifier ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToQuantity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:SimpleEntity
+          RBLP:M3
+          RBLP:M4
+          RBLP:M5
+          RBLP:S1
+          RBLP:S3
+        ) ;
+    ] ;
+  rdfs:range RBLP:Quantity ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToState
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:M2
+          RBLP:M3
+          RBLP:M4
+          RBLP:P2
+          RBLP:EntityFilterState
+          RBLP:EntityFilterSubEntityState
+        ) ;
+    ] ;
+  rdfs:range RBLP:State ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToSubject
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:Main ;
+  rdfs:range RBLP:Actor ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedToSuffix
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:Action ;
+  rdfs:label "is related to suffix"^^xsd:string ;
+  rdfs:range RBLP:Suffix ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedtoEvent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:P1
+          RBLP:S2
+          RBLP:S3
+        ) ;
+    ] ;
+  rdfs:range RBLP:Event ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedtoMode
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain RBLP:State ;
+  rdfs:range RBLP:Mode ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isRelatedtoUOM
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          RBLP:Quantity
+          RBLP:S1
+          RBLP:S3
+        ) ;
+    ] ;
+  rdfs:range <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement> ;
+  rdfs:subPropertyOf RBLP:isRelatedToAttribute ;
+.
+RBLP:isSimilarTo
+  rdf:type owl:SymmetricProperty ;
+  rdf:type owl:TransitiveProperty ;
+  rdfs:domain RBLP:Attribute ;
+.

@@ -1,0 +1,28 @@
+atomic type PUSsvc1Disptch
+
+ 
+data int  sid ,ssid ,ackReq ,src  
+   
+	export port  syncPort  accOK_ack     
+	export port  syncPort  accOK     
+	export port  syncPort  execOK     
+	export port  syncPort  execOK_ack     
+	export port  syncPort  PUSdisp     
+	export port  syncPort  accFail     
+	export port  syncPort  execFail   
+ 
+	place S0 
+
+initial to  S0 do{  
+	sid=-1; ssid=-1; ackReq=-1; src=-1;  }
+
+ on PUSdisp from S0 to S0   
+ on accOK_ack from S0 to S0   
+ on accOK from S0 to S0   
+ on accFail from S0 to S0   
+ on execFail from S0 to S0   
+ on execOK from S0 to S0   
+ on execOK_ack from S0 to S0   
+
+
+end

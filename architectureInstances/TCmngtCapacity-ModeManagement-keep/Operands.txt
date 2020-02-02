@@ -1,0 +1,38 @@
+model Modes2Management
+  
+ port type SyncPort 
+
+ atomic type TC_Management
+    
+ 	export port  SyncPort  acqSg_e()     
+ 	export port  SyncPort  noSg()     
+ 	export port  SyncPort  success()     
+ 	export port  SyncPort  getGround()     
+ 	export port  SyncPort  acqSg_b()     
+ 	export port  SyncPort  acqFail_e()     
+ 	export port  SyncPort  put()     
+ 	export port  SyncPort  acqFail_b()   
+  
+ 	place S3 ,S0 ,S1 ,S2 
+
+ initial to  S0 
+  on acqSg_b from S0 to S1   
+  on acqSg_e from S1 to S0   
+  on noSg from S0 to S0   
+  on put from S0 to S3   
+  on acqFail_b from S3 to S2   
+  on acqFail_e from S2 to S0   
+  on success from S3 to S0   
+  on getGround from S0 to S0   
+ 	
+ end 
+
+ 
+ compound type ModeManagement
+	component TC_Management   TCmanagement     
+end
+
+	component ModeManagement modemanagement
+
+end
+ 

@@ -1,0 +1,3 @@
+path:architectureInstances/256-Mutex/MutexOperands.bip
+operands:{B CMP1_1 CMP2_2 CMP3_3}
+ports:{B.begin CMP1_1.begin CMP2_2.begin CMP3_3.begin},{B.finish CMP1_1.finish CMP2_2.finish CMP3_3.finish}

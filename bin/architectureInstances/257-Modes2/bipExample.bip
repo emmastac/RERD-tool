@@ -1,0 +1,107 @@
+model ModeControl2
+  compound type ModeControl
+    component MOD1 MOD1_1
+    component MOD2 MOD2_2
+    component MOD3 MOD3_3
+    component Coordinator C
+    connector ModeSwitchConnector switchToMode1(C.toMode1)
+    connector ModeSwitchConnector switchToMode2(C.toMode2)
+    connector ActionStartConnector actionStart1(C.inMode1, MOD3_3.m1b3, MOD1_1.m1b1, MOD2_2.m1b2)
+    connector ActionStartConnector actionStart2(C.inMode2, MOD3_3.m2b3, MOD1_1.m2b1, MOD2_2.m2b2)
+    connector ActionEndConnector actionEnd1(MOD2_2.m1e2, MOD3_3.m1e3, MOD1_1.m1e1)
+    connector ActionEndConnector actionEnd2(MOD3_3.m2e3, MOD2_2.m2e2, MOD1_1.m2e1)
+  end
+
+  atomic type MOD1
+    place wait
+    place mode1
+    place mode2
+    initial to wait
+    on m1b1
+      from wait to mode1
+    on m1e1
+      from mode1 to wait
+    on m2b1
+      from wait to mode2
+    on m2e1
+      from mode2 to wait
+    export port ModeStart m1b1 is 
+    export port ModeEnd m1e1 is 
+    export port ModeStart m2b1 is 
+    export port ModeEnd m2e1 is 
+  end
+
+  port type ModeStart
+  port type ModeEnd
+  atomic type MOD2
+    place wait
+    place mode1
+    place mode2
+    initial to wait
+    on m1b2
+      from wait to mode1
+    on m1e2
+      from mode1 to wait
+    on m2b2
+      from wait to mode2
+    on m2e2
+      from mode2 to wait
+    export port ModeStart m1b2 is 
+    export port ModeEnd m1e2 is 
+    export port ModeStart m2b2 is 
+    export port ModeEnd m2e2 is 
+  end
+
+  atomic type MOD3
+    place wait
+    place mode1
+    place mode2
+    initial to wait
+    on m1b3
+      from wait to mode1
+    on m1e3
+      from mode1 to wait
+    on m2b3
+      from wait to mode2
+    on m2e3
+      from mode2 to wait
+    export port ModeStart m1b3 is 
+    export port ModeEnd m1e3 is 
+    export port ModeStart m2b3 is 
+    export port ModeEnd m2e3 is 
+  end
+
+  atomic type Coordinator
+    place mode1
+    place mode2
+    initial to mode1
+    on inMode1
+      from mode1 to mode1
+    on inMode2
+      from mode2 to mode2
+    on toMode1
+      from mode2 to mode1
+    on toMode2
+      from mode1 to mode2
+    export port ModeAction inMode1 is 
+    export port ModeAction inMode2 is 
+    export port ModeSwitch toMode1 is 
+    export port ModeSwitch toMode2 is 
+  end
+
+  port type ModeAction
+  port type ModeSwitch
+  connector type ModeSwitchConnector(ModeSwitch toMode1)
+    define  toMode1
+  end
+
+  connector type ActionStartConnector(ModeAction inMode1, ModeStart m1b3, ModeStart m1b1, ModeStart m1b2)
+    define  inMode1 m1b3 m1b1 m1b2
+  end
+
+  connector type ActionEndConnector(ModeEnd m1e2, ModeEnd m1e3, ModeEnd m1e1)
+    define  m1e2 m1e3 m1e1
+  end
+
+  component ModeControl modeControl2
+end

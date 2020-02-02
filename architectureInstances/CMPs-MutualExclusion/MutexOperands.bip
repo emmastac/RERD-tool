@@ -1,0 +1,40 @@
+model MutexOperands
+  
+ port type BeginPort 
+ port type FinishPort 
+
+  atomic type cmp2
+ 		
+ 	export port BeginPort begin1
+ 	export port FinishPort finish1
+
+ 	place work, sleep
+ 	initial to sleep	
+
+ 	on begin1 from sleep to work	
+ 	on finish1 from work to sleep
+ end
+   
+  atomic type cmp1
+ 		
+ 	export port BeginPort begin1
+ 	export port FinishPort finish1
+
+ 	place work, sleep
+ 	initial to sleep	
+
+ 	on begin1 from sleep to work	
+ 	on finish1 from work to sleep
+ end
+ 	
+   
+
+compound type MutexOperands
+	  component cmp2   CMP2  
+	  component cmp1   CMP1   
+end
+
+	component MutexOperands mxOperands
+
+end
+ 

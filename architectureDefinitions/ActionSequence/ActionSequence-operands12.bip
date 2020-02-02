@@ -1,0 +1,43 @@
+model ActionSequenceOperands
+
+	port type ActionBeginPort
+	port type ActionEndPort
+
+	atomic type Operand_1
+		
+		export port ActionBeginPort a1b
+		export port ActionEndPort a1e
+
+		export port ActionBeginPort a2b  
+		export port ActionEndPort a2e
+
+		place work, sleep
+		initial to sleep	
+
+		on a1b from sleep to work	
+		on a1e from work to sleep
+
+		on a2b from sleep to work	
+		on a2e from work to sleep
+	end
+
+	atomic type Operand_2
+		
+		export port ActionBeginPort a3b
+		export port ActionEndPort a3e
+
+		place work, sleep
+		initial to sleep	
+
+		on a3b from sleep to work	
+		on a3e from work to sleep
+	end
+
+
+	compound type ActionSequenceOperands
+		component Operand_1 B1
+		component Operand_2 B2
+	end
+
+	component ActionSequenceOperands asOperands
+end

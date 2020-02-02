@@ -1,0 +1,3 @@
+path:architectureInstances/CMPs-MutualExclusion/MutexOperands.bip
+operands_mapping:B CMP2 CMP1
+ports_mapping:B.begin CMP2.begin1 CMP1.begin1,B.finish CMP2.finish1 CMP1.begin1

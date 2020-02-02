@@ -1,0 +1,3 @@
+path:/localhome/vladimir/Architecture_examples/Archive/Mutex/MutualExclusion-operands2.bip
+operands:{B B1 B2}
+ports:{B.begin B1.begin B2.begin},{B.finish B1.finish B2.finish}

@@ -1,0 +1,14 @@
+# This file is used for controlling what the application recognizes as Prep Words. 
+# Prep words are commonly used words that have no ontology backing, 
+# such as for, in, and etc
+
+# These words will be recognized in the text regardless of capitalization
+# If a word happens to be both a prep word and an instance, the application
+# will highlight it as an instance
+
+# Comments can be entered by starting a line with a '#' (without the quotes)
+
+the
+in
+for
+each

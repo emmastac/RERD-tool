@@ -1,0 +1,105 @@
+# This is the file for defining the syntax of the blpEditor application
+
+# Lines starting with # are considered comments and not parsed
+# Each line is written like (without the # at start of line):
+# ID # content, content1|content2, namespace:content::
+
+# content is a static string. The user will be unable to change it
+
+# content1 | content2 is parsed as a drop-down. The user will choose 
+# one of the options that are separated by the "|" (pipe) character
+
+# Namespace:content:: exampleContent is parsed as a text field. The type is content. 
+# It can be prefilled with exampleContent (if it exists), or be empty.
+# The user will be able to edit the value of exampleContent
+
+# DO NOT USE DASHES IN BOILERPLATE IDS! DON'T DO RBLP-P1a, USE ':' INSTEAD, LIKE IN RBLP:P1a
+
+# Syntax should always be first so that parsing for the complex items can work
+# Any complex item (e.g <time-interval>) referenced in the content a line of syntax should first be defined
+# Always put the simplest form of a definition first, since it will be the default
+
+SYNTAX:
+# Definitions with no dependencies
+Subject := OoSSA:System::
+Subject := OoSSA:SystemFunction::
+# Currently unused, uncomment to use
+# Operator := and | or | xor | except from
+# Implemented differently
+# Prep := between | among | through | in | on | to | from | with | of | without | other than
+Quantifier := at least | at most | on average
+Number := xsd:integer::
+
+# >=1 dependency from previous or this group
+Quantity := <Quantifier> , <number> , uomvocab:UnitOfMeasurement::
+Entity := RBLP:Entity::
+Entity := <Entity> , and | or | xor , <Entity>
+Entity-quant := all
+Entity-quant := any
+Entity-quant := <Quantifier>
+Entity := <Entity-quant> , <Entity>
+Entity := between | among | through | in | on | to | from | with | of | without | other than , <Entity>
+Entity := <Entity> , <Entity>
+# Does verb exist? Shouldn't we define it?
+Action := OoSSA:Verb:: , <Entity>
+Action := <Action> , and | or | xor , <Action>
+Entity-list := <Number> , <Entity>
+Entity-list := <Number> , <Entity> , <Entity-list>
+State := RBLP:State::
+State := <Entity> , is | are , RBLP:Mode:: 
+
+# >2 dependencies from previous groups OR >=1 dependencies from this group
+Entity-filter := whose , <Entity> , do | do not , <Action>
+Entity-filter := whose , <Entity> , is , <State>
+Entity-filter := which | which not , <Action>
+Entity-filter := which is , <State>
+# Entity := <descript ??? > , <Entity> , <Entity-filter>
+Action-block := <Action>
+If-block := if , RBLP:Condition:: , <Action-block> , then , RBLP:Condition:: , <Action-block>
+While-block := While , RBLP:Condition:: , <Action-block>
+Action-block := <If-block>
+Action-block := <While-block>
+Event := RBLP:Actor:: , <Action>
+Event := <Entity> , OoSSA:Verb::
+
+#Building blocks
+Building-block := <Event> , OoSSA:Interface::
+Subject := <Building-block>
+
+# Used for suffix RBLP:S4 
+Act-ent-suff := <Action>
+Act-ent-suff := <Entity>
+EntiList-ent := <Entity-list>
+EntiList-ent := <Entity>
+
+PREFIXES:
+# Write prefixes from here downwards
+RBLP:P1 := If | Unless , <Event>
+RBLP:P2 := If | Unless | While , <State> 
+RBLP:P3 := If | Unless | While , <Action>
+
+BODIES:
+# Write bodies from here downwards
+RBLP:M1 := <Subject> , shall | shall not , <Action>
+RBLP:M2 := <Subject> , shall | shall not , be , <State>
+RBLP:M3 := <Subject> , shall | shall not , allow , <Entity> , of, <Quantity>, to be , <State>
+RBLP:M4 := <Subject> , shall | shall not , allow , <Number>, <Entity> , to be, <State>
+RBLP:M5 := <Subject> , shall | shall not , have , <Number>, <Entity>
+RBLP:M6 := <Subject> , shall | shall not , be able to , <Action>
+RBLP:M7 := <Subject> , shall | shall not , support , <Action>
+RBLP:M8 := <Subject> , shall | shall not , execute , <Action-block>
+RBLP:M9 := <Subject> , shall | shall not , handle , <Entity>
+RBLP:M10 := <Subject> , shall | shall not , make available , <Entity>
+RBLP:M11 := <Entity> , shall | shall not , be defined in , <Entity>
+RBLP:M12 := <Entity> , shall | shall not , allow , <Entity> , to , <Action>
+
+SUFFIXES:
+# Write suffixes from here downwards
+RBLP:S1 := uomvocab:UnitOfMeasurement:: , per, s | ms | ns
+RBLP:S2 := After | Before , <Event>
+RBLP:S3 := <Quantifier> , every | for a period of | within | for at least , <Number>, uomvocab:UnitOfMeasurement:: , from , <Event>
+RBLP:S4 := Without | Without affecting, <Act-ent-suff>
+RBLP:S5 := Other than , <Act-ent-suff>
+RBLP:S6 := In the order , <EntiList-ent>
+RBLP:S7 := At even intervals,
+RBLP:S8 := Using , <Entity>

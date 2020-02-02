@@ -1,0 +1,17 @@
+atomic type SmuTC
+   
+	export port  syncPort  get_b     
+	export port  syncPort  get_e     
+	export port  syncPort  ask     
+	export port  syncPort  empty   
+ 
+	place S0 ,S1 ,S2 
+
+initial to  S0 
+
+ on ask from S0 to S1   
+ on empty from S1 to S0   
+ on get_b from S1 to S2   
+ on get_e from S2 to S0   
+
+end

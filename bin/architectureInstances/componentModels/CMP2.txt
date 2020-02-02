@@ -1,0 +1,12 @@
+ atomic type cmp2
+		
+	export port BeginPort begin1
+	export port FinishPort finish1
+
+	place work, sleep
+	initial to sleep	
+
+	on begin1 from sleep to work	
+	on finish1 from work to sleep
+end
+ 

@@ -1,0 +1,32 @@
+# baseURI: http://lpis.csd.auth.gr/ontologies/2015/DSOInstances
+# imports: http://lpis.csd.auth.gr/ontologies/2015/DSO.ttl
+
+@prefix DSO: <http://lpis.csd.auth.gr/ontologies/2015/DSO.ttl#> .
+@prefix DSOInstances: <http://lpis.csd.auth.gr/ontologies/2015/DSOInstances#> .
+@prefix OoSSA: <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+DSO:CSW
+  rdf:type DSO:CentralSoftware ;
+  rdfs:label "CSW"^^xsd:string ;
+.
+<http://lpis.csd.auth.gr/ontologies/2015/DSOInstances>
+  rdf:type owl:Ontology ;
+  owl:imports <http://lpis.csd.auth.gr/ontologies/2015/DSO.ttl> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+OoSSA:TCProcessingCapacity
+  rdf:type OoSSA:Data ;
+  rdfs:label "TCProcessing capacity"^^xsd:string ;
+.
+OoSSA:TCSegments
+  rdf:type OoSSA:Parameter ;
+  rdfs:label "TCSegments"^^xsd:string ;
+.
+OoSSA:mboxWithinLimits
+  rdf:type OoSSA:Mode ;
+  rdfs:label "mbox within limits"^^xsd:string ;
+.

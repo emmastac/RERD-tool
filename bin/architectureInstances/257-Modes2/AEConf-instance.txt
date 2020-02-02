@@ -1,0 +1,3 @@
+path:architectureInstances/257-Modes2/Modes2Operands.bip
+operands:{B MOD1_1 MOD2_2 MOD3_3}
+ports:{B.m1b MOD1_1.m1b1 MOD2_2.m1b2 MOD3_3.m1b3},{B.m1e MOD1_1.m1e1 MOD2_2.m1e2 MOD3_3.m1e3},{B.m2b MOD1_1.m2b1 MOD2_2.m2b2 MOD3_3.m2b3},{B.m2e MOD1_1.m2e1 MOD2_2.m2e2 MOD3_3.m2e3}

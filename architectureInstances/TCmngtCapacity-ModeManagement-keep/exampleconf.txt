@@ -1,0 +1,5 @@
+operands:TCmanagement
+coordinators:C
+path:architectureInstances/TCmngt-ModeManagement/example.bip
+interactions:C.toFull,C.toNFull,C.acqSg TCmanagement.acqSg_b,C.acqFail TCmanagement.acqFail_b,TCmanagement.acqSg_e,TCmanagement.acqFail_e
+ports:C.acqSg,C.acqFail,C.toFull,C.toNFull,TCmanagement.acqSg_b,TCmanagement.acqSg_e,TCmanagement.acqFail_b,TCmanagement.acqFail_e

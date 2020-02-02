@@ -1,0 +1,5 @@
+operands:TCmanagement
+coordinators:C
+path:architectureInstances/TCFifo-BufferManagement/example.bip
+interactions:C.put TCmanagement.put,C.put TCmanagement.put,C.getGround TCmanagement.getGround,C.getGround TCmanagement.getGround
+ports:TCmanagement.acqSg_e,TCmanagement.noSg,TCmanagement.success,TCmanagement.getGround,TCmanagement.acqSg_b,TCmanagement.acqFail_e,TCmanagement.put,TCmanagement.acqFail_b,C.put,C.put,C.getGround,C.getGround

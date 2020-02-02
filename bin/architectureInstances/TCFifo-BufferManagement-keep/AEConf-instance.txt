@@ -1,0 +1,3 @@
+path:architectureInstances/TCFifo-BufferManagement/BufferManagementOperands.bip
+operands_mapping:B TCmanagement,
+ports_mapping:B.consumePC TCmanagement.getGround,B.producePC TCmanagement.put,

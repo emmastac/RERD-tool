@@ -1,0 +1,85 @@
+model ActionSequence12
+
+	port type ActionBeginPort
+	port type ActionEndPort
+
+	atomic type Operand_1
+		
+		export port ActionBeginPort a1b
+		export port ActionEndPort a1e
+
+		export port ActionBeginPort a2b  
+		export port ActionEndPort a2e
+
+		place work, sleep
+		initial to sleep	
+
+		on a1b from sleep to work	
+		on a1e from work to sleep
+
+		on a2b from sleep to work	
+		on a2e from work to sleep
+	end
+
+	atomic type Operand_2
+		
+		export port ActionBeginPort a3b
+		export port ActionEndPort a3e
+
+		place work, sleep
+		initial to sleep	
+
+		on a3b from sleep to work	
+		on a3e from work to sleep
+	end
+
+
+	atomic type Coordinator_1
+		
+                // Triplicate each port according to the instance configuration file
+		export port ActionBeginPort a1b
+		export port ActionBeginPort a2b
+		export port ActionBeginPort a3b
+		export port ActionEndPort a1e
+		export port ActionEndPort a2e
+		export port ActionEndPort a3e
+
+		place wait, next
+		initial to next
+
+		on a1b from next to wait
+		on a1e from wait to next
+
+		on a2b from next to wait
+		on a2e from wait to next
+
+		on a3b from next to wait
+		on a3e from wait to next
+	end
+
+
+	connector type beginConnector(ActionBeginPort bOp, ActionBeginPort bCoord)
+		define bOp bCoord
+	end
+
+	connector type finishConnector(ActionEndPort eOp, ActionEndPort eCoord)
+		define eOp eCoord
+	end
+
+	compound type ActionSequence
+		component Coordinator C
+		component Operand_1 B1
+		component Operand_2 B2
+
+		connector beginConnector B1_1_to_C_begin(B1.a1b,C.a1b)
+		connector finishConnector B1_1_to_C_finish(B1.a1e,C.a1e)
+
+		connector beginConnector B1_2_to_C_begin(B1.a2b,C.a2b)
+		connector finishConnector B1_2_to_C_finish(B1.a2e,C.a2e)
+
+		connector beginConnector B2_to_C_begin(B1.a3b,C.a3b)
+		connector finishConnector B2_to_C_finish(B1.a3e,C.a3e)
+	end
+
+	component ActionSequence actionSequence
+end

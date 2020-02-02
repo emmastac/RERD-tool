@@ -1,0 +1,2 @@
+path:architectureInstances/256-Mutex/bipExample.bip
+coordinators:C

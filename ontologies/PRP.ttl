@@ -1,0 +1,326 @@
+# baseURI: http://lpis.csd.auth.gr/ontologies/2015/PRP
+# imports: http://purl.oclc.org/net/muo/muo
+
+@prefix PRP: <http://lpis.csd.auth.gr/ontologies/2015/PRP#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://lpis.csd.auth.gr/ontologies/2015/PRP>
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.oclc.org/net/muo/muo> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+PRP:Attribute
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+PRP:Behaviour
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:ComplexBehaviour
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Behaviour ;
+.
+PRP:Component
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:Evaluation
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:Event
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:Expression
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Evaluation ;
+.
+PRP:F1
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:FunctionalPattern ;
+.
+PRP:F2
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:FunctionalPattern ;
+.
+PRP:Function
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Evaluation ;
+.
+PRP:FunctionalPattern
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:PropertyPattern ;
+.
+PRP:Interaction
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Event ;
+.
+PRP:Interval
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:LiteralValue
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Evaluation ;
+.
+PRP:LocalDefinition
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:LogicExpression
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:LogicExpressionComp
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:LogicExpression ;
+.
+PRP:LogicExpressionInter
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:LogicExpression ;
+.
+PRP:M1
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:ModePattern ;
+.
+PRP:Mode
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:ModeChange
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Event ;
+.
+PRP:ModePattern
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:PropertyPattern ;
+.
+PRP:PortActivation
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Event ;
+.
+PRP:PortDescription
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:PropChange
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Event ;
+.
+PRP:PropertyPattern
+  rdf:type owl:Class ;
+  rdfs:subClassOf owl:Thing ;
+.
+PRP:Proposition
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Attribute ;
+.
+PRP:Proposition1
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Proposition ;
+.
+PRP:Proposition2
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Proposition ;
+.
+PRP:QuantityInterval
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Interval ;
+.
+PRP:SimpleBehaviour
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Behaviour ;
+.
+PRP:SimpleBehaviourEvent
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:SimpleBehaviour ;
+.
+PRP:SimpleBehaviourProp
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:SimpleBehaviour ;
+.
+PRP:TimeInterval
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Interval ;
+.
+PRP:Variable
+  rdf:type owl:Class ;
+  rdfs:subClassOf PRP:Evaluation ;
+.
+PRP:fromMode
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:ModeChange ;
+  rdfs:range PRP:Mode ;
+.
+PRP:hasBehOperator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain PRP:Behaviour ;
+  rdfs:range xsd:string ;
+.
+PRP:hasBehaviour
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          PRP:Behaviour
+          PRP:FunctionalPattern
+        ) ;
+    ] ;
+  rdfs:range PRP:Behaviour ;
+.
+PRP:hasComparator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain PRP:LogicExpression ;
+  rdfs:range xsd:string ;
+.
+PRP:hasEvaluation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          PRP:LogicExpression
+          PRP:Interval
+          PRP:LocalDefinition
+        ) ;
+    ] ;
+  rdfs:range PRP:Evaluation ;
+.
+PRP:hasFunction
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:Evaluation ;
+  rdfs:range PRP:Function ;
+.
+PRP:hasFunctionBody
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain PRP:Function ;
+  rdfs:range xsd:string ;
+.
+PRP:hasFunctionName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+.
+PRP:hasLiteralValue
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:Evaluation ;
+  rdfs:range PRP:LiteralValue ;
+.
+PRP:hasLocalDefinition
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:SimpleBehaviour ;
+  rdfs:range PRP:LocalDefinition ;
+.
+PRP:hasMode
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:Proposition2 ;
+  rdfs:range PRP:Mode ;
+.
+PRP:hasProposition
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          PRP:SimpleBehaviourProp
+          PRP:Event
+        ) ;
+    ] ;
+  rdfs:range PRP:Proposition ;
+.
+PRP:hasUnit
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:QuantityInterval ;
+  rdfs:range <http://purl.oclc.org/NET/muo/muo#UnitOfMeasurement> ;
+.
+PRP:hasVariable
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          PRP:Evaluation
+          PRP:Function
+        ) ;
+    ] ;
+  rdfs:range PRP:Variable ;
+.
+PRP:hasVariableName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          PRP:LocalDefinition
+          PRP:Variable
+        ) ;
+    ] ;
+  rdfs:range xsd:string ;
+.
+PRP:isRelatedToComponent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          PRP:ModeChange
+          PRP:Variable
+          PRP:Proposition2
+        ) ;
+    ] ;
+  rdfs:range PRP:Component ;
+.
+PRP:isRelatedToEvent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:SimpleBehaviourEvent ;
+  rdfs:range PRP:Event ;
+.
+PRP:isRelatedToExpression
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:Evaluation ;
+  rdfs:range PRP:Expression ;
+.
+PRP:isRelatedToInterval
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          PRP:SimpleBehaviourEvent
+          PRP:TimeInterval
+          PRP:QuantityInterval
+        ) ;
+    ] ;
+  rdfs:range PRP:Interval ;
+.
+PRP:isRelatedToLogicExpression
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          PRP:Proposition1
+          PRP:PropChange
+        ) ;
+    ] ;
+  rdfs:range PRP:LogicExpression ;
+.
+PRP:isRelatedToQuantInterval
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:LogicExpressionInter ;
+  rdfs:range PRP:QuantityInterval ;
+  rdfs:subPropertyOf PRP:isRelatedToInterval ;
+.
+PRP:isRelatedToTimeInterval
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:LogicExpressionInter ;
+  rdfs:range PRP:TimeInterval ;
+  rdfs:subPropertyOf PRP:isRelatedToInterval ;
+.
+PRP:occurs
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain PRP:Event ;
+  rdfs:range xsd:boolean ;
+.
+PRP:toMode
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain PRP:ModeChange ;
+  rdfs:range PRP:Mode ;
+.

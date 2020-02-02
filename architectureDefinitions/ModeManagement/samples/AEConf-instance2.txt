@@ -1,0 +1,3 @@
+path:/TestCases/Instantiation/Input/Modes2/Modes2-operands2.bip
+operands_mapping:B HK Log
+ports_mapping:B.m1b HK.saveToMem Log.log,B.m2b HK.sendToGround Log.log,B.m1e HK.success_1 Log.log,B.m2e HK.fail_1 Log.log

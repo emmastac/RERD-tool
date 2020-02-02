@@ -1,0 +1,12 @@
+atomic type PUS_5
+   
+   
+	export port  syncPort  tm5_3
+	   
+	place S0
+
+initial to  S0
+
+ on tm5_3 from S0 to S0
+
+end

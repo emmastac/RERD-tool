@@ -1,0 +1,3 @@
+path:architectureInstances/TCmngtCapacity-ModeManagement/ModeManagementOperands.bip
+operands:{B }
+ports:{B.m1b },{B.m1e },{B.m2b },{B.m2e }

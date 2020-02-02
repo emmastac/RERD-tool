@@ -1,0 +1,18 @@
+ atomic type MOD3
+		
+		export port ModeStart m1b3
+		export port ModeEnd m1e3
+
+		export port ModeStart m2b3
+		export port ModeEnd m2e3
+
+		place wait, mode1, mode2
+		initial to wait	
+
+		on m1b3 from wait to mode1
+		on m1e3 from mode1 to wait
+
+		on m2b3 from wait to mode2
+		on m2e3 from mode2 to wait
+end
+ 

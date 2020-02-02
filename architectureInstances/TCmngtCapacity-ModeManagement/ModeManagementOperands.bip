@@ -1,0 +1,12 @@
+model ModeControl2Operands
+  
+
+
+compound type ModeControl2Operands
+ 
+end
+
+component ModeControl2Operands mc2Operands
+
+end
+ 

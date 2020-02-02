@@ -1,0 +1,5 @@
+path:architectureDefinitions/BufferManagement/utils/BufferManagement.bip
+coordinators:C
+operands:B
+ports:C.put,C.full,C.empty,C.get,G.consume,P.produce,B.consume,B.produce
+connectors:P_to_C_put P.produce 1 1 C.put 1 n,P_to_C_full P.produce 1 1 C.full 1 n,G_to_C_get G.consume 1 1 C.get 1 n,G_to_C_empty G.consume 1 1 C.empty 1 n,B_to_C_put B.produce 1 1 C.put 1 n,B_to_C_full B.produce 1 1 C.full 1 n,B_to_C_get B.consume 1 1 C.get 1 n,B_to_C_empty B.consume 1 1 C.empty 1 n

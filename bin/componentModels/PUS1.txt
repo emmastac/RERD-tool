@@ -1,0 +1,21 @@
+atomic type PUS_1
+
+ 
+	export port  syncPort  tm1_7     
+	export port  syncPort  tm1_8     
+	export port  syncPort  tm1_4     
+	export port  syncPort  tm1_1     
+	export port  syncPort  tm1_2   
+ 
+	place S0 
+
+initial to  S0 do{  }
+
+ on tm1_4 from S0 to S0   
+ on tm1_2 from S0 to S0   
+ on tm1_8 from S0 to S0   
+ on tm1_7 from S0 to S0   
+ on tm1_1 from S0 to S0 
+
+
+end

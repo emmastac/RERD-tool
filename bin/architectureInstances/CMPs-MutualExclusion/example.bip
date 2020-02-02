@@ -1,0 +1,65 @@
+model Mutex
+  compound type Mutex
+    component Coordinator C
+    component cmp2 CMP2
+    component cmp1 CMP1
+    connector beginConnector B_to_C_begin_1(C.take, CMP2.begin1)
+    connector beginConnector B_to_C_begin_2(C.take, CMP1.begin1)
+    connector finishConnector B_to_C_finish_1(C.release, CMP2.finish1)
+    connector finishConnector B_to_C_finish_2(C.release, CMP1.begin1)
+  end
+
+  port type BeginPort
+  port type FinishPort
+  atomic type Coordinator
+    export port BeginPort take()
+    export port FinishPort release()
+    place taken
+    place free
+    initial to free
+    on take
+      from free to taken
+    on release
+      from taken to free
+
+
+  end
+
+  atomic type cmp2
+    export port BeginPort begin1()
+    export port FinishPort finish1()
+    place work
+    place sleep
+    initial to sleep
+    on begin1
+      from sleep to work
+    on finish1
+      from work to sleep
+
+
+  end
+
+  atomic type cmp1
+    export port BeginPort begin1()
+    export port FinishPort finish1()
+    place work
+    place sleep
+    initial to sleep
+    on begin1
+      from sleep to work
+    on finish1
+      from work to sleep
+
+
+  end
+
+  connector type beginConnector(BeginPort b, BeginPort t)
+    define  b t
+  end
+
+  connector type finishConnector(FinishPort f, FinishPort r)
+    define  f r
+  end
+
+  component Mutex mutex
+end

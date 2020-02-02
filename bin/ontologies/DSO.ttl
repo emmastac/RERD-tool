@@ -1,0 +1,301 @@
+# baseURI: http://lpis.csd.auth.gr/ontologies/2015/DSO.ttl
+# imports: http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl
+
+@prefix DSO: <http://lpis.csd.auth.gr/ontologies/2015/DSO.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://lpis.csd.auth.gr/ontologies/2015/DSO.ttl>
+  rdf:type owl:Ontology ;
+  owl:imports <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+DSO:AOCS
+  rdf:type owl:Class ;
+  rdfs:comment "This class refers to the Attitude and Orbit Control System of the satellite. This system is responsible for always keeping the satellite in its predetermined position."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SubSystem> ;
+.
+DSO:AOCSManagement
+  rdf:type owl:Class ;
+  rdfs:comment "The management of AOCS related functions."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SystemFunction> ;
+.
+DSO:Actuator
+  rdf:type owl:Class ;
+  rdfs:comment "A thing that acts in a particular way."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#ComponentImplementation> ;
+.
+DSO:Band
+  rdf:type owl:Class ;
+  rdfs:comment "A range of frequencies or wavelengths used in radio transmission, communications and radar."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Mode> ;
+.
+DSO:C-Band
+  rdf:type owl:Class ;
+  rdfs:comment "The IEEE C-band (4 to 8 GHz) and its slight variations contain frequency ranges that are used for many satellite communications transmissions."^^xsd:string ;
+  rdfs:subClassOf DSO:Band ;
+.
+DSO:CentralSoftware
+  rdf:type owl:Class ;
+  rdfs:comment "The central software responsible for many of the satellite's operations."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SubSystem> ;
+.
+DSO:CommandUplink
+  rdf:type owl:Class ;
+  rdfs:comment "The communications link between the ground and the satellite which is used to send commands."^^xsd:string ;
+  rdfs:subClassOf DSO:CommunicationsLink ;
+.
+DSO:CommunicationsLink
+  rdf:type owl:Class ;
+  rdfs:comment "A link that connects the satellite to the ground."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#ComponentImplementation> ;
+.
+DSO:DataCommunication
+  rdf:type owl:Class ;
+  rdfs:comment "The communication of data to and from the satellite."^^xsd:string ;
+  rdfs:subClassOf DSO:RFCommunication ;
+.
+DSO:DataHandling
+  rdf:type owl:Class ;
+  rdfs:comment "The data handling refers to all the functions which are related to the manipulation of data that travel to or from the satellite."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:DataManagementSystem
+  rdf:type owl:Class ;
+  rdfs:comment "This class refers to the system which is responsible for managing the data that are coming to, or travelling from the satellite."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SubSystem> ;
+.
+DSO:DataProcessing
+  rdf:type owl:Class ;
+  rdfs:comment "Refers to the processing of data."^^xsd:string ;
+  rdfs:subClassOf DSO:DataManagementSystem ;
+.
+DSO:DataStorage
+  rdf:type owl:Class ;
+  rdfs:comment "Refers to the storage of data."^^xsd:string ;
+  rdfs:subClassOf DSO:DataManagementSystem ;
+.
+DSO:DeviceCommandDistribution
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:DiagnosticDataReporting
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:ElectricalPowerSystem
+  rdf:type owl:Class ;
+  rdfs:comment "Refers to the statellite's system which is responsible for providing electrical power to all systems. The type of the mission (e.g., GEO, LEO), influences the time that the satellite is facing the sun, and thus the way the power subsystem is designed."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SubSystem> ;
+.
+DSO:EventReporting
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:GEO
+  rdf:type owl:Class ;
+  rdfs:comment "The vehicle having a fixed position relative to the features of the Earth."^^xsd:string ;
+  rdfs:subClassOf DSO:Orbit ;
+.
+DSO:GPS
+  rdf:type owl:Class ;
+  rdfs:comment "An electronic system that uses a global system of navigational satellites developed to provide precise positional and velocity data and global time synchronization for air, sea, and land travel."^^xsd:string ;
+  rdfs:subClassOf DSO:Sensor ;
+.
+DSO:Gathering
+  rdf:type owl:Class ;
+  rdfs:comment "The procedure of gathering data either coming from telemetry or from various on-board devices which are ready for transmission."^^xsd:string ;
+  rdfs:subClassOf DSO:DataHandling ;
+.
+DSO:Gyro
+  rdf:type owl:Class ;
+  rdfs:comment "A gyroscope is a spinning wheel or disc in which the axis of rotation is free to assume any orientation. When rotating, the orientation of this axis is unafected by tilting or rotation of the mounting, according to the conservation of angular momentum. Because of this, gyroscopes are useful for measuring or maintaining orientation."^^xsd:string ;
+  rdfs:subClassOf DSO:Sensor ;
+.
+DSO:HouseKeepingReporting
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:Ku-Band
+  rdf:type owl:Class ;
+  rdfs:comment "The Ku band is the 1218 GHz portion of the electromagnetic spectrum in the microwave range of frequencies. Ku band is primarily used for satellite communications, most notably for fixed and broadcast services, and for specific applications such as NASA's Tracking Data Relay Satellite used for both space shuttle and International Space Station (ISS) communications."^^xsd:string ;
+  rdfs:subClassOf DSO:Band ;
+.
+DSO:LEO
+  rdf:type owl:Class ;
+  rdfs:comment "A low Earth orbit (LEO) is an orbit around Earth with an altitude between 160 kilometers (99 mi) (orbital period of about 88 minutes), and 2,000 kilometers (1,200 mi) (about 127 minutes). The orbital velocity needed to maintain a stable low Earth orbit is about 7.8 km/s, but reduces with increased orbital altitude."^^xsd:string ;
+  rdfs:subClassOf DSO:Orbit ;
+.
+DSO:Magnetometer
+  rdf:type owl:Class ;
+  rdfs:comment "Spacecraft magnetometers are magnetometers used aboard spacecraft and satellites, mostly for scientific investigations, plus attitude sensing. Magnetometers are among the most widely used scientific instruments in exploratory and observation satellites."^^xsd:string ;
+  rdfs:subClassOf DSO:Sensor ;
+.
+DSO:Magnetorquer
+  rdf:type owl:Class ;
+  rdfs:comment "In satellite systems, a magnetorquer or magnetic torquer (also known as torque rod) is a system for attitude control, detumbling and stabilization built from electromagnetic coils. The magnetorquer develops a magnetic field which interfaces with an ambient magnetic field, usually the Earth's, so that the counter-forces produced provide useful torque."^^xsd:string ;
+  rdfs:subClassOf DSO:Actuator ;
+.
+DSO:MassMemoryManagement
+  rdf:type owl:Class ;
+  rdfs:comment "The management of the satellite's mass memory."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SystemFunction> ;
+.
+DSO:MassMemoryUnit
+  rdf:type owl:Class ;
+  rdfs:comment "The subsystem responsible for the management of the on-board memory."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SubSystem> ;
+.
+DSO:MemoryManagement
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:NearPolarLEO
+  rdf:type owl:Class ;
+  rdfs:subClassOf DSO:Orbit ;
+.
+DSO:OnBoardOperationsScheduling
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:Orbit
+  rdf:type owl:Class ;
+  rdfs:comment "Orbit is the gravitationally curved path of an object around a point in space."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Mode> ;
+.
+DSO:PatchManagement
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:Payload
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Data> ;
+.
+DSO:PayloadManagement
+  rdf:type owl:Class ;
+  rdfs:comment "The management of various payload parameters."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SystemFunction> ;
+.
+DSO:PowerManagement
+  rdf:type owl:Class ;
+  rdfs:comment "The management of various functions related to the power system."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SystemFunction> ;
+.
+DSO:Processing
+  rdf:type owl:Class ;
+  rdfs:comment "Refers to the signal processing capability of the satellite."^^xsd:string ;
+  rdfs:subClassOf DSO:DataHandling ;
+.
+DSO:RFCommunication
+  rdf:type owl:Class ;
+  rdfs:comment "RF has traditionally defined frequencies from a few kHz to roughly 1 GHz."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SystemFunction> ;
+.
+DSO:Ranging
+  rdf:type owl:Class ;
+  rdfs:comment "The ranging transponder forms part of the system by which the ground controller tracks the spacecraft and determines its orbit."^^xsd:string ;
+  rdfs:subClassOf DSO:DataHandling ;
+.
+DSO:ReactionWheel
+  rdf:type owl:Class ;
+  rdfs:comment """A reaction wheel is a type of wheel used primarily by spacecraft for attitude control without using fuel for rockets or other reaction devices. They
+are particularly useful when the spacecraft must be rotated by very small amounts, such as keeping a telescope pointed at a star."""^^xsd:string ;
+  rdfs:subClassOf DSO:Actuator ;
+.
+DSO:Reception
+  rdf:type owl:Class ;
+  rdfs:comment "Refers to the reception of data coming from telemetry (uplink)."^^xsd:string ;
+  rdfs:subClassOf DSO:DataHandling ;
+.
+DSO:Routing
+  rdf:type owl:Class ;
+  rdfs:comment "Refers to the routing of packets that are traveling through communication networks from/to the satellite."^^xsd:string ;
+  rdfs:subClassOf DSO:DataHandling ;
+.
+DSO:S-Band
+  rdf:type owl:Class ;
+  rdfs:comment """The S band is part of the microwave band of the electromagnetic spectrum. It is defined by an IEEE standard for radio waves with frequencies that
+range from 2 to 4 GHz, crossing the conventional boundary between UHF and SHF at 3.0 GHz. The S band is used by weather radar, surface ship radar, and some communications satellites, especially those used by NASA to communicate with the Space Shuttle and the International Space Station."""^^xsd:string ;
+  rdfs:subClassOf DSO:Band ;
+.
+DSO:SatelliteManagementUnit
+  rdf:type owl:Class ;
+  rdfs:comment "The On-board Computer is the central core of the Spacecraft Avionics."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SubSystem> ;
+.
+DSO:Sensor
+  rdf:type owl:Class ;
+  rdfs:comment "A mechanical device sensitive to light, temperature, or radiation level, that transmits a signal to a measuring or control instrument."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#ComponentImplementation> ;
+.
+DSO:StartTracker
+  rdf:type owl:Class ;
+  rdfs:comment "A star tracker is an optical device that measures the position(s) of star(s) using photocell(s) or a camera."^^xsd:string ;
+  rdfs:subClassOf DSO:Sensor ;
+.
+DSO:SunSensor
+  rdf:type owl:Class ;
+  rdfs:comment "A sun sensor is a device that senses the direction to the Sun to measure the position of the sun or other light sources with respect to the sensor position."^^xsd:string ;
+  rdfs:subClassOf DSO:Sensor ;
+.
+DSO:SystemManagement
+  rdf:type owl:Class ;
+  rdfs:comment "The management of various aspects of the system."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SystemFunction> ;
+.
+DSO:TCManagement
+  rdf:type owl:Class ;
+  rdfs:comment "Telecommand management."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SystemFunction> ;
+.
+DSO:TMTC
+  rdf:type owl:Class ;
+  rdfs:comment "Telemetry (data travelling from the satellite to the ground) and Telecommand (data travelling from the ground to the satellite)."^^xsd:string ;
+  rdfs:subClassOf DSO:RFCommunication ;
+.
+DSO:TelecommandVerification
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#Capability> ;
+.
+DSO:TelecommunicationSubSystem
+  rdf:type owl:Class ;
+  rdfs:comment "The subsystem which is responsible for the communication of the satellite to and from the ground."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SubSystem> ;
+.
+DSO:TelemetryDownLink
+  rdf:type owl:Class ;
+  rdfs:comment "The communications link between the satellite and the ground which is used to send telemetry data."^^xsd:string ;
+  rdfs:subClassOf DSO:CommunicationsLink ;
+.
+DSO:ThermalControl
+  rdf:type owl:Class ;
+  rdfs:comment "The management and control of the thermal sub system of a satellite."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SystemFunction> ;
+.
+DSO:ThermalSubSystem
+  rdf:type owl:Class ;
+  rdfs:comment "It is responsible to keep all the spacecraft parts within acceptable temperature ranges during all mission phases."^^xsd:string ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/2015/OoSSA.ttl#SubSystem> ;
+.
+DSO:Thruster
+  rdf:type owl:Class ;
+  rdfs:comment "A thruster is a propulsive device used by a spacecraft for station keeping, attitude control, in the reaction control system, or long-duration, low-thrust acceleration."^^xsd:string ;
+  rdfs:subClassOf DSO:Actuator ;
+.
+DSO:Transmission
+  rdf:type owl:Class ;
+  rdfs:comment "Refers to the transmission of data from the satellite to the ground (downlink)."^^xsd:string ;
+  rdfs:subClassOf DSO:DataHandling ;
+.
+DSO:Transponder
+  rdf:type owl:Class ;
+  rdfs:comment "Is the series of interconnected units that form a communications channel between the receiving and the transmitting antennas."^^xsd:string ;
+  rdfs:subClassOf DSO:RFCommunication ;
+.
+DSO:X-Band
+  rdf:type owl:Class ;
+  rdfs:comment "The X band is a segment of the microwave radio region of the electromagnetic spectrum. In some cases, such as in communication engineering, the frequency range of the X band is rather indefinitely set at approximately 7.0 to 11.2 gigahertz (GHz). In radar engineering, the frequency range is specified by the IEEE at 8.0 to 12.0 GHz (8.9 to 9.1 Bel Hz)."^^xsd:string ;
+  rdfs:subClassOf DSO:Band ;
+.
