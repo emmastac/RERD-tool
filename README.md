@@ -40,6 +40,7 @@ Contents
   RERD tool has only a grapical user interface.
   
  Run the jar found in jars/rerd.jar with the following command:
+ 
 	   $ java -jar rerd.jar
      
   Licensing
