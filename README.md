@@ -39,8 +39,8 @@ Contents
 
   RERD tool has only a grapical user interface.
   
- Run with the following command:
-	   $ java -jar cssp-tool.jar
+ Run the jar found in jars/rerd.jar with the following command:
+	   $ java -jar rerd.jar
      
   Licensing
   ---------
@@ -50,6 +50,6 @@ Contents
   Contact
   --------
 
-   If you want to provide us with bug reports, or if you need support with RERD tool's execution, feel free to contact me (Emmanouela Stachtiari, Ph.D) at emmastac@csd.auth.gr.
+   To report bugs or to ask support with the use of RERD, feel free to contact me (Emmanouela Stachtiari, Ph.D) at emmastac@csd.auth.gr.
 
 
