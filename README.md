@@ -5,7 +5,7 @@
 What is it?
 -----------
 
-RERD tool supports a model-based system design using BIP models. 
+RERD tool supports a model-based system design using BIP models. RERD's website is at https://emmastac.github.io/RERD-tool/
 
 
 Latest Version
