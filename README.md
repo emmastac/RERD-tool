@@ -11,7 +11,7 @@ RERD tool supports a model-based system design using BIP models.
 Latest Version
 ------------------
 
-Currently, only one version is available and can be downloaded at https://github.com/emmastac/BPEL2BIPtranslator.git
+Currently, only one version is available and can be downloaded at https://github.com/emmastac/RERD-tool.git
 
 Dependencies
 --------------
@@ -32,7 +32,7 @@ Contents
   Installation
   ------------
 
-  No installation is needed for RERDtool. A Java version (1.7+) is required. 
+  No installation is needed for the tool. A Java version (1.7+) is required. 
 
   Execution
   ------------
