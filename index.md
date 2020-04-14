@@ -2,7 +2,7 @@
                          RERD tool
 
 
-What is it?
+What is it
 -----------
 
 RERD tool supports a model-based system design using BIP models. 
