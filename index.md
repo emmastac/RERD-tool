@@ -2,7 +2,7 @@
                          RERD tool
 
 
-What is it
+What is it?
 -----------
 
 RERD tool supports a model-based system design using BIP models. 
@@ -15,7 +15,7 @@ Currently, only one version is available and can be downloaded at https://github
 
 Dependencies
 --------------
-All dependencies are under cssp-tool_lib/
+All dependencies are under rerd-tool_lib/
 
 
 Contents
@@ -29,26 +29,26 @@ Contents
   - A Properties.txt file that defines the Property pattern grammar
 
 
-  Installation
-  ------------
+Installation
+------------
 
-  No installation is needed for the tool. A Java version (1.7+) is required. 
+No installation is needed for the tool. A Java version (1.7+) is required. 
 
-  Execution
-  ------------
+Execution
+------------
 
-  RERD tool has only a grapical user interface.
+RERD has only a grapical user interface.
 
- Run the jar found in jars/rerd.jar with the following command:
+Run the jar found in jars/rerd.jar with the following command:
 
 	   $ java -jar rerd.jar
 
-  Licensing
-  ---------
+Licensing
+---------
 
-  This information is in a separate file named LICENSE.
+ Licensing information is in a separate file named LICENSE.
 
-  Contact
-  --------
+Contact
+--------
 
-   To report bugs or to ask support with the use of RERD, feel free to contact me (Emmanouela Stachtiari, Ph.D) at emmanouela.stachtiari@unige.ch.
+To report bugs or to ask support with the use of RERD, feel free to contact me (Emmanouela Stachtiari, Ph.D) at emmanouela.stachtiari@unige.ch.
