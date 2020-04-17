@@ -5,13 +5,16 @@
 What is it?
 -----------
 
-RERD tool supports a model-based system design using BIP models. 
+RERD is a Requirements Specification & Validation tool that supports
+  - pattern-based requirement specification and formalization
+  - ontology-based requirement validation
+  - model-based system design using the [BIP component framework](http://www-verimag.imag.fr/Rigorous-Design-of-Component-Based.html)
 
 
 Latest Version
 ------------------
 
-Currently, only one version is available and can be downloaded at https://github.com/emmastac/RERD-tool.git
+Currently, only one version is available and can be downloaded [here](https://github.com/emmastac/RERD-tool.git)
 
 Dependencies
 --------------
@@ -46,7 +49,12 @@ Run the jar found in jars/rerd.jar with the following command:
 Licensing
 ---------
 
- Licensing information is in a separate file named LICENSE.
+Licensing information is in a separate file named LICENSE.
+ 
+Related Tools
+-------------
+
+[BIP component framework] http://www-verimag.imag.fr/Rigorous-Design-of-Component-Based.html
 
 Contact
 --------
