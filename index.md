@@ -60,7 +60,7 @@ Licensing information is in a separate file named LICENSE.
 Related Tools
 -------------
 
-[BIP component framework] http://www-verimag.imag.fr/Rigorous-Design-of-Component-Based.html
+BIP component framework:[http://www-verimag.imag.fr/Rigorous-Design-of-Component-Based.html](http://www-verimag.imag.fr/Rigorous-Design-of-Component-Based.html)
 
 Contact
 --------
