@@ -4,11 +4,16 @@
 
 What is it?
 -----------
+RERD is a Requirements Specification & Validation tool for the specification, formalization and validation of requirements. 
+RERD supports users in the following tasks: 
+  - pattern-based specification of requirements
+  - guided derivation of formal properties that capture the semantics of requirements
+  - ontology-based validation of requirements
+  - model-based system design using the [BIP component framework](http://www-verimag.imag.fr/Rigorous-Design-of-Component-Based.html) that allows to incrementally enforce formal properties and perform properties verification 
 
-RERD is a Requirements Specification & Validation tool that supports
-  - pattern-based requirement specification and formalization
-  - ontology-based requirement validation
-  - model-based system design using the [BIP component framework](http://www-verimag.imag.fr/Rigorous-Design-of-Component-Based.html)
+Please find the following related articles:
+1. Stachtiari, E., Mavridou, A., Katsaros, P., Bliudze, S. and Sifakis, J., 2018. Early validation of system requirements and design through correctness-by-construction. Journal of Systems and Software, 145, pp.52-78. [[doi]](https://doi.org/10.1016/j.jss.2018.07.053) 
+2. Mavridou, A., Stachtiari, E., Bliudze, S., Ivanov, A., Katsaros, P. and Sifakis, J., 2016, October. Architecture-based design: A satellite on-board software case study. In International Workshop on Formal Aspects of Component Software (pp. 260-279). Springer, Cham. [[doi]](https://link.springer.com/chapter/10.1007/978-3-319-57666-4_16) 
 
 
 Latest Version
@@ -50,6 +55,7 @@ Licensing
 ---------
 
 Licensing information is in a separate file named LICENSE.
+
  
 Related Tools
 -------------
