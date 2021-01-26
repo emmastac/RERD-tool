@@ -39,9 +39,11 @@ Execution
 RERD tool has only a grapical user interface.
 
 Copy the rerd.jar, found in /jars folder, into the top level folder:
+
 	   $ cp jars/rerd.jar .
 
 Run rerd.jar with the following command:
+
 	   $ java -jar rerd.jar
      
 Licensing
