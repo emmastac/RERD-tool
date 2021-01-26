@@ -45,9 +45,5 @@
 	<classpathentry kind="lib" path="bin/cssp-tool_lib/stringtemplate-3.0.jar"/>
 	<classpathentry kind="lib" path="bin/cssp-tool_lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="bin/cssp-tool_lib/xml-apis-1.4.01.jar"/>
-	<classpathentry kind="lib" path="bin/cssp-tool.jar"/>
-	<classpathentry kind="lib" path="bin/jars/cssp-tool.jar"/>
-	<classpathentry kind="lib" path="cssp-tool.jar"/>
-	<classpathentry kind="lib" path="jars/cssp-tool.jar"/>
 	<classpathentry kind="output" path="bin1"/>
 </classpath>
