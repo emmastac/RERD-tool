@@ -1,5 +1,0 @@
-path:architectureDefinitions/ModeManagement/utils/Modes2.bip
-coordinators:C
-operands:B
-ports:C.inMode1,C.inMode2,C.toMode1,C.toMode2,B.m1b,B.m1e,B.m2b,B.m2e
-connectors:switchToMode1 C.toMode1 1 1,switchToMode2 C.toMode2 1 1,actionStart1 C.inMode1 1 1 B.m1b n 1,actionStart2 C.inMode2 1 1 B.m2b n 1,actionEnd1 B.m1e n 1,actionEnd2 B.m2e n 1

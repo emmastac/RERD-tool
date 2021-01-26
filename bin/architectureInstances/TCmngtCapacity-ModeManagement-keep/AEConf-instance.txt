@@ -1,3 +1,0 @@
-path:architectureInstances/TCmngt-ModeManagement/ModeManagementOperands.bip
-operands_mapping:B TCmanagement
-ports_mapping:B.m1b TCmanagement.acqSg_b,B.m2b TCmanagement.acqFail_b,B.m1e TCmanagement.acqSg_e,B.m2e TCmanagement.acqFail_e

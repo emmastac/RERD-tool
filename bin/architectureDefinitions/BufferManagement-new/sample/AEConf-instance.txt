@@ -1,3 +1,0 @@
-path:/TestCases/Instantiation/Input/BufferManagement/BufferManagement-operands.bip
-operands_mapping:Cons Cons1 Cons2,Prod Prod1 Prod2,ProdCons ProdCons1 ProdCons2
-ports_mapping:Cons.consume {Cons1.consume} {Cons2.consume},Prod.produce {Prod1.produce} {Prod2.produce},ProdCons.consumePC {ProdCons1.consumePC} {ProdCons2.consumePC},ProdCons.producePC {ProdCons1.producePC} {ProdCons2.producePC}

@@ -1,2 +1,0 @@
-ArchitectureInstantiation;;;architectureInstances/TCFifo-BufferManagement/example.bip;;;architectureInstances/TCFifo-BufferManagement/exampleconf.txt
-ArchitectureInstantiation;;;architectureInstances/TCmngtCapacity-ModeManagement/example.bip;;;architectureInstances/TCmngtCapacity-ModeManagement/exampleconf.txt

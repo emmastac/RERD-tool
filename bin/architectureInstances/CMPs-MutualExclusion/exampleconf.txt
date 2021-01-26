@@ -1,5 +1,0 @@
-operands:CMP2,CMP1
-coordinators:C
-path:architectureInstances/CMPs-MutualExclusion/example.bip
-interactions:C.take CMP2.begin1,C.take CMP1.begin1,C.release CMP2.finish1,C.release CMP1.begin1
-ports:C.take,C.release,CMP2.begin1,CMP2.finish1,CMP1.begin1,CMP1.finish1

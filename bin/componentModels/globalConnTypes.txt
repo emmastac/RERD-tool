@@ -1,1 +1,0 @@
-connector CPTCIF2 SVC228tcComm ( PUS1.dispTC ,SVC228.tcComm   )  

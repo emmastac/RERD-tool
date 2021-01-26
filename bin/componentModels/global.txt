@@ -1,7 +1,0 @@
-component TC_Management TCmanagement
-component svc228 SVC228 
-component PUS_1 PUS1 
-component PUS_5 PUS5 
-component smuTC SMUTC
-component PUSsvc1Disptch PUS1_DISP  
-component PUSsvc1Verif PUS1_VERIF  

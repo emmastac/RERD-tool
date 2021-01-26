@@ -1,4 +1,0 @@
-    connector putConnector B_to_C_put_1(C.put, TCmanagement.put)
-    connector putConnector B_to_C_full_1(C.put, TCmanagement.put)
-    connector getConnector B_to_C_get_1(C.getGround, TCmanagement.getGround)
-    connector getConnector B_to_C_empty_1(C.getGround, TCmanagement.getGround)

@@ -1,8 +1,0 @@
-path:/home/dsg003/svn-repos/boilerplates-editor/architectureDefinitions/BufferManagement/utils/BufferManagement.bip
-coordinators:C
-coordinator_cardinality:C 1
-operands:Cons,Prod,ProdCons
-ports:C.empty,C.full,C.get,C.put,Cons.consume,Prod.produce,ProdCons.consumePC,ProdCons.producePC
-connectors:emptyConn C.empty 1 1,fullConn C.full 1 1,consumeConn1 C.get 1 deg_C.get_1 Cons.consume 1 1,consumeConn2 C.get 1 deg_C.get_2 ProdCons.consumePC 1 1,produceConn1 C.put 1 deg_C.put_1 Prod.produce 1 1,produceConn2 C.put 1 deg_C.put_2 ProdCons.producePC 1 1
-coordinator_ports_cardinality:C.empty 1,C.full 1,C.get 1,C.put 1
-additional_constraints:
